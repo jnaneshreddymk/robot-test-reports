@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-18T10:54:46.196699" rpa="false" schemaversion="5">
+<suite id="s1" name="MNO ProdA" source="C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\testcases\MNO_ProdA">
+<suite id="s1-s1" name="DailyBVT" source="C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\testcases\MNO_ProdA\DailyBVT.robot">
+<test id="s1-s1-t1" name="LoginToApplication" line="16">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting login flow</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:54:48.274630" elapsed="0.000530"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:54:48.276361" level="INFO">Opening browser 'Chrome' to base url 'https://kids.gominno.com/home'.</msg>
+<arg>${MNOA_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:54:48.275779" elapsed="14.772361"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T10:55:03.053608" elapsed="0.068268"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Browser opened: ${MNOA_URL}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:55:03.124212" elapsed="0.003052"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:55:23.567644" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T10:55:23.568032" level="FAIL">Element '//div[@class='header-right search-login-section']//button[@class='btn-comman-theme-app rounded text-base h-9'][normalize-space()='Sign In']' not visible after 20 seconds.</msg>
+<arg>${MNOC_Signin}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T10:55:03.128080" elapsed="20.445151">Element '//div[@class='header-right search-login-section']//button[@class='btn-comman-theme-app rounded text-base h-9'][normalize-space()='Sign In']' not visible after 20 seconds.</status>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_Signin}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Sigin button is not available</arg>
+<status status="NOT RUN" start="2025-11-18T10:55:23.573889" elapsed="0.000074"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_LoginEmailId}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-11-18T10:55:23.574311" elapsed="0.000044"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_LoginEmailId}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Username input field not available</arg>
+<status status="NOT RUN" start="2025-11-18T10:55:23.574735" elapsed="0.000048"/>
+</kw>
+<kw name="Input Text" owner="WebCommon">
+<arg>locator=${MNOC_LoginEmailId}</arg>
+<arg>text=${MNOC_USN}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Username not entered</arg>
+<status status="NOT RUN" start="2025-11-18T10:55:23.575190" elapsed="0.000055"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Entered Username: ${MNOC_USN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:55:23.575951" elapsed="0.000048"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_LoginPassword}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-11-18T10:55:23.576324" elapsed="0.000047"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_LoginPassword}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Password input field not available</arg>
+<status status="NOT RUN" start="2025-11-18T10:55:23.576721" elapsed="0.000050"/>
+</kw>
+<kw name="Input Text" owner="WebCommon">
+<arg>locator=${MNOC_LoginPassword}</arg>
+<arg>text=${MNOC_PSW}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Password not entered</arg>
+<status status="NOT RUN" start="2025-11-18T10:55:23.577211" elapsed="0.000052"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Entered Password</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:55:23.577593" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_LOGIN}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-11-18T10:55:23.577961" elapsed="0.000046"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_LOGIN}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Login submit button not available</arg>
+<status status="NOT RUN" start="2025-11-18T10:55:23.578450" elapsed="0.000052"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Login submitted</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:55:23.578856" elapsed="0.000066"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_PROFILE}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-11-18T10:55:23.579579" elapsed="0.000047"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_PROFILE}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Profile selection failed</arg>
+<status status="NOT RUN" start="2025-11-18T10:55:23.579973" elapsed="0.000051"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Profile selected</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:55:23.580351" elapsed="0.000047"/>
+</kw>
+<status status="FAIL" start="2025-11-18T10:54:48.272871" elapsed="35.307995">Element '//div[@class='header-right search-login-section']//button[@class='btn-comman-theme-app rounded text-base h-9'][normalize-space()='Sign In']' not visible after 20 seconds.</status>
+</test>
+<test id="s1-s1-t2" name="TV Shows Playback" line="38">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting TV Shows Playback</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:55:23.582621" elapsed="0.000417"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_1SHOW}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:55:23.583445" elapsed="3.213273"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:55:26.798105" elapsed="0.020496"/>
+</kw>
+<msg time="2025-11-18T10:55:26.818815" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:55:26.797887" elapsed="0.020970"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:55:26.819801" level="INFO">Clicking element '//div[contains(@class, "swiper-slide-active") and contains(@class, "cursor-pointer")]'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:55:26.819509" elapsed="0.226959"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:55:26.819106" elapsed="0.227707"/>
+</kw>
+<arg>locator=${MNOC_1SHOW}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Show card click failed</arg>
+<status status="PASS" start="2025-11-18T10:55:26.797220" elapsed="0.249901"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Clicked first show card</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:55:27.047894" elapsed="0.000673"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_PLAYBTN}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:55:27.049352" elapsed="2.059432"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:55:29.110367" elapsed="0.033167"/>
+</kw>
+<msg time="2025-11-18T10:55:29.144041" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:55:29.110016" elapsed="0.034150"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:55:29.146313" level="INFO">Clicking element '//app-play-button[@class='ng-star-inserted']//button[@class='btn-theme-app play-btn']'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:55:29.145605" elapsed="0.232594"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:55:29.144729" elapsed="0.233710"/>
+</kw>
+<arg>locator=${MNOC_PLAYBTN}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Play button click failed</arg>
+<status status="PASS" start="2025-11-18T10:55:29.109370" elapsed="0.269317"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:55:50.584854" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T10:55:50.585371" level="FAIL">Element '(//button[normalize-space()='Start over'])[1]' not visible after 20 seconds.</msg>
+<arg>locator=${MNOC_SO}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T10:55:29.379811" elapsed="21.208587">Element '(//button[normalize-space()='Start over'])[1]' not visible after 20 seconds.</status>
+</kw>
+<msg time="2025-11-18T10:55:50.588832" level="INFO">${result} = False</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${MNOC_SO}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:55:29.379289" elapsed="21.209617"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${MNOC_SO}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:55:50.589498" elapsed="0.000519"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Playback started. Validating playback...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:55:50.590578" elapsed="0.000663"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:56:20.593927" level="INFO">Slept 30 seconds.</msg>
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:55:50.592506" elapsed="30.001810"/>
+</kw>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:56:20.596437" level="INFO">Simulating Mouse Over on element '//i[@class='bmpui-ui-playbacktogglebutton bmpui-on']'.</msg>
+<msg time="2025-11-18T10:56:21.342226" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T10:56:21.342824" level="FAIL">Element with locator '//i[@class='bmpui-ui-playbacktogglebutton bmpui-on']' not found.</msg>
+<arg>${MNOC_PLAYER_State}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="FAIL" start="2025-11-18T10:56:20.595535" elapsed="0.833681">Element with locator '//i[@class='bmpui-ui-playbacktogglebutton bmpui-on']' not found.</status>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${playback_state}</var>
+<arg>SeleniumLibrary.Element Should Be Visible</arg>
+<arg>${MNOC_PLAYER_State}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:21.430336" elapsed="0.000174"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${playback_state}'=='True'</arg>
+<arg>Log To Console</arg>
+<arg>Playback is successful.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:21.431463" elapsed="0.000147"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${playback_state}'=='True'</arg>
+<arg>Log</arg>
+<arg>Playback is successful.</arg>
+<arg>console=True</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:21.432504" elapsed="0.000143"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${playback_state}'=='False'</arg>
+<arg>Log To Console</arg>
+<arg>Playback failed.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:21.433597" elapsed="0.000143"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${playback_state}'=='False'</arg>
+<arg>Fail</arg>
+<arg>Playback failed.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:21.434626" elapsed="0.000140"/>
+</kw>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<arg>${MNOC_Back}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:21.435614" elapsed="0.000190"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_Back}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:21.437026" elapsed="0.000137"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_Back}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Back button click failed</arg>
+<status status="NOT RUN" start="2025-11-18T10:56:21.438236" elapsed="0.000164"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Returned from TV show playback</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:21.439159" elapsed="0.000095"/>
+</kw>
+<status status="FAIL" start="2025-11-18T10:55:23.582100" elapsed="57.857895">Element with locator '//i[@class='bmpui-ui-playbacktogglebutton bmpui-on']' not found.</status>
+</test>
+<test id="s1-s1-t3" name="Program Playback" line="60">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting Program Playback</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:56:21.442696" elapsed="0.002025"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_AllShows}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:56:21.445388" elapsed="0.047223"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:56:21.494817" elapsed="0.037513"/>
+</kw>
+<msg time="2025-11-18T10:56:21.532664" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:56:21.494431" elapsed="0.038311"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:56:21.534497" level="INFO">Clicking element '(//span[@class='nav-image'])[2]'.</msg>
+<msg time="2025-11-18T10:56:23.199480" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T10:56:23.199886" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;span..._ngcontent-ng-c1400273920="" class="nav-image" style="mask-image: url(&amp;quot;assets/images/allshowsIcon.svg&amp;quot;);"&gt; &lt;/span&gt; is not clickable at point (696, 39). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=142.0.7444.60); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff609b0a235
+	0x7ff609862630
+	0x7ff6095f16dd
+	0x7ff6096524c9
+	0x7ff60964fe4e
+	0x7ff60964cd71
+	0x7ff60964bc10
+	0x7ff60963d3a8
+	0x7ff609672b0a
+	0x7ff60963cc36
+	0x7ff60969baba
+	0x7ff60963b0ed
+	0x7ff60963bf63
+	0x7ff609b35d60
+	0x7ff609b2fe8a
+	0x7ff609b51005
+	0x7ff60987d71e
+	0x7ff609884e1f
+	0x7ff60986b7c4
+	0x7ff60986b97f
+	0x7ff6098518e8
+	0x7ffefc01259d
+	0x7ffefd20af78
+</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-11-18T10:56:21.533781" elapsed="1.677493">ElementClickInterceptedException: Message: element click intercepted: Element &lt;span..._ngcontent-ng-c1400273920="" class="nav-image" style="mask-image: url(&amp;quot;assets/images/allshowsIcon.svg&amp;quot;);"&gt; &lt;/span&gt; is not clickable at point (696, 39). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=142.0.7444.60); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff609b0a235
+	0x7ff609862630
+	0x7ff6095f16dd
+	0x7ff6096524c9
+	0x7ff60964fe4e
+	0x7ff60964cd71
+	0x7ff60964bc10
+	0x7ff60963d3a8
+	0x7ff609672b0a
+	0x7ff60963cc36
+	0x7ff60969baba
+	0x7ff60963b0ed
+	0x7ff60963bf63
+	0x7ff609b35d60
+	0x7ff609b2fe8a
+	0x7ff609b51005
+	0x7ff60987d71e
+	0x7ff609884e1f
+	0x7ff60986b7c4
+	0x7ff60986b97f
+	0x7ff6098518e8
+	0x7ffefc01259d
+	0x7ffefd20af78
+</status>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-11-18T10:56:21.533153" elapsed="1.678381">ElementClickInterceptedException: Message: element click intercepted: Element &lt;span..._ngcontent-ng-c1400273920="" class="nav-image" style="mask-image: url(&amp;quot;assets/images/allshowsIcon.svg&amp;quot;);"&gt; &lt;/span&gt; is not clickable at point (696, 39). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=142.0.7444.60); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff609b0a235
+	0x7ff609862630
+	0x7ff6095f16dd
+	0x7ff6096524c9
+	0x7ff60964fe4e
+	0x7ff60964cd71
+	0x7ff60964bc10
+	0x7ff60963d3a8
+	0x7ff609672b0a
+	0x7ff60963cc36
+	0x7ff60969baba
+	0x7ff60963b0ed
+	0x7ff60963bf63
+	0x7ff609b35d60
+	0x7ff609b2fe8a
+	0x7ff609b51005
+	0x7ff60987d71e
+	0x7ff609884e1f
+	0x7ff60986b7c4
+	0x7ff60986b97f
+	0x7ff6098518e8
+	0x7ffefc01259d
+	0x7ffefd20af78
+</status>
+</kw>
+<arg>locator=${MNOC_AllShows}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=All Shows tab click failed</arg>
+<status status="FAIL" start="2025-11-18T10:56:21.493421" elapsed="1.718720">ElementClickInterceptedException: Message: element click intercepted: Element &lt;span..._ngcontent-ng-c1400273920="" class="nav-image" style="mask-image: url(&amp;quot;assets/images/allshowsIcon.svg&amp;quot;);"&gt; &lt;/span&gt; is not clickable at point (696, 39). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=142.0.7444.60); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff609b0a235
+	0x7ff609862630
+	0x7ff6095f16dd
+	0x7ff6096524c9
+	0x7ff60964fe4e
+	0x7ff60964cd71
+	0x7ff60964bc10
+	0x7ff60963d3a8
+	0x7ff609672b0a
+	0x7ff60963cc36
+	0x7ff60969baba
+	0x7ff60963b0ed
+	0x7ff60963bf63
+	0x7ff609b35d60
+	0x7ff609b2fe8a
+	0x7ff609b51005
+	0x7ff60987d71e
+	0x7ff609884e1f
+	0x7ff60986b7c4
+	0x7ff60986b97f
+	0x7ff6098518e8
+	0x7ffefc01259d
+	0x7ffefd20af78
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_ALL1card}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.212882" elapsed="0.000095"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_ALL1card}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Program card click failed</arg>
+<status status="NOT RUN" start="2025-11-18T10:56:23.213613" elapsed="0.000095"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Clicked first program card</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.214231" elapsed="0.000079"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_Watch}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.214833" elapsed="0.000079"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_Watch}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Watch button click failed</arg>
+<status status="NOT RUN" start="2025-11-18T10:56:23.215476" elapsed="0.000084"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${MNOC_SO}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.216060" elapsed="0.000078"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${MNOC_SO}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.216997" elapsed="0.000078"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Playback started. Validating playback...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.217538" elapsed="0.000076"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.218068" elapsed="0.000115"/>
+</kw>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<arg>${MNOC_PLAYER_State}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.218987" elapsed="0.000099"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${playback_state}</var>
+<arg>SeleniumLibrary.Element Should Be Visible</arg>
+<arg>${MNOC_PLAYER_State}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.219664" elapsed="0.000093"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${playback_state}'=='True'</arg>
+<arg>Log To Console</arg>
+<arg>Playback is successful.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.220415" elapsed="0.000075"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${playback_state}'=='True'</arg>
+<arg>Log</arg>
+<arg>Playback is successful.</arg>
+<arg>console=True</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.220963" elapsed="0.000070"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${playback_state}'=='False'</arg>
+<arg>Log To Console</arg>
+<arg>Playback failed.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.221437" elapsed="0.000064"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${playback_state}'=='False'</arg>
+<arg>Fail</arg>
+<arg>Playback failed.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.222206" elapsed="0.000056"/>
+</kw>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<arg>${MNOC_Back}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.222630" elapsed="0.000057"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_Back}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.223011" elapsed="0.000080"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_Back}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Back button click failed</arg>
+<status status="NOT RUN" start="2025-11-18T10:56:23.223711" elapsed="0.000087"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Returned from program playback</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:23.224263" elapsed="0.000091"/>
+</kw>
+<status status="FAIL" start="2025-11-18T10:56:21.441832" elapsed="1.783060">ElementClickInterceptedException: Message: element click intercepted: Element &lt;span..._ngcontent-ng-c1400273920="" class="nav-image" style="mask-image: url(&amp;quot;assets/images/allshowsIcon.svg&amp;quot;);"&gt; &lt;/span&gt; is not clickable at point (696, 39). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=142.0.7444.60); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff609b0a235
+	0x7ff609862630
+	0x7ff6095f16dd
+	0x7ff6096524c9
+	0x7ff60964fe4e
+	0x7ff60964cd71
+	0x7ff60964bc10
+	0x7ff60963d3a8
+	0x7ff609672b0a
+	0x7ff60963cc36
+	0x7ff60969baba
+	0x7ff60963b0ed
+	0x7ff60963bf63
+	0x7ff609b35d60
+	0x7ff609b2fe8a
+	0x7ff609b51005
+	0x7ff60987d71e
+	0x7ff609884e1f
+	0x7ff60986b7c4
+	0x7ff60986b97f
+	0x7ff6098518e8
+	0x7ffefc01259d
+	0x7ffefd20af78
+</status>
+</test>
+<test id="s1-s1-t4" name="Logout" line="84">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting logout process</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:56:23.228388" elapsed="0.000680"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:56:43.895752" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T10:56:43.896189" level="FAIL">Element '//div[@class='user-dropdown']//button[contains(@class, 'mat-mdc-menu-trigger')]' not visible after 20 seconds.</msg>
+<arg>${MNOC_PRO}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T10:56:23.229811" elapsed="20.670324">Element '//div[@class='user-dropdown']//button[contains(@class, 'mat-mdc-menu-trigger')]' not visible after 20 seconds.</status>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_PRO}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Failed to open profile dropdown</arg>
+<status status="NOT RUN" start="2025-11-18T10:56:43.901223" elapsed="0.000126"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${result}</var>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${MNOC_PROFILE}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:43.902214" elapsed="0.000163"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Clicked profile dropdown</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:43.903423" elapsed="0.000157"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MNOC_LOGOUT}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:43.904442" elapsed="0.000152"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<arg>locator=${MNOC_LOGOUT}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Logout button click failed</arg>
+<status status="NOT RUN" start="2025-11-18T10:56:43.905485" elapsed="0.000151"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${result}</var>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${MNOC_LOGOUT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:43.906417" elapsed="0.000156"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Logout complete</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:43.907318" elapsed="0.000139"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:43.908724" elapsed="0.000126"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T10:56:43.909585" elapsed="0.000123"/>
+</kw>
+<status status="FAIL" start="2025-11-18T10:56:23.227234" elapsed="20.683315">Element '//div[@class='user-dropdown']//button[contains(@class, 'mat-mdc-menu-trigger')]' not visible after 20 seconds.</status>
+</test>
+<status status="FAIL" start="2025-11-18T10:54:46.282116" elapsed="117.631118"/>
+</suite>
+<status status="FAIL" start="2025-11-18T10:54:46.201420" elapsed="117.714514"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="MNO ProdA" id="s1" pass="0" fail="4" skip="0">MNO ProdA</stat>
+<stat name="DailyBVT" id="s1-s1" pass="0" fail="4" skip="0">MNO ProdA.DailyBVT</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-11-18T10:54:48.224293" level="WARN">Error in file 'C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\resources\common\WebCommon.robot' on line 36: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>

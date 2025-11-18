@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-18T10:58:50.581765" rpa="false" schemaversion="5">
+<suite id="s1" name="MSN ProdC" source="C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\testcases\MSN_ProdC">
+<suite id="s1-s1" name="DailyBVT" source="C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\testcases\MSN_ProdC\DailyBVT.robot">
+<test id="s1-s1-t1" name="LoginToApplication" line="15">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:58:51.199995" level="INFO">Opening browser 'Chrome' to base url 'https://dev.marqueeadvanced.com/login?redirect_uri=https%3a%2f%2fdev.marqueeadvanced.com%2flogin&amp;error=&amp;error_description=&amp;error_message='.</msg>
+<arg>${MSNC_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T10:58:51.199559" elapsed="6.673553"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T10:58:57.876727" elapsed="0.090944"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Opening Browser: ${MSNC_URL}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:58:57.968632" elapsed="0.001312"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Sign_in_BTN}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:58:57.970752" elapsed="9.721386"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:07.694196" elapsed="0.017864"/>
+</kw>
+<msg time="2025-11-18T10:59:07.712258" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:59:07.693859" elapsed="0.018447"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:59:07.713097" level="INFO">Clicking element '//button[@class='btn btn--primary btn--loader']'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:59:07.712845" elapsed="0.170377"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:59:07.712501" elapsed="0.171038"/>
+</kw>
+<arg>locator=${Sign_in_BTN}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Sign in button is not available</arg>
+<status status="PASS" start="2025-11-18T10:59:07.692812" elapsed="0.190977"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LoginEmailId}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:07.884879" elapsed="0.031682"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:07.919985" elapsed="0.022831"/>
+</kw>
+<msg time="2025-11-18T10:59:07.943100" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:59:07.918991" elapsed="0.024177"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:59:07.944384" level="INFO">Clicking element '//input[@id='email']'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:59:07.943988" elapsed="0.096094"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:59:07.943491" elapsed="0.096818"/>
+</kw>
+<arg>locator=${LoginEmailId}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Username input field is not available</arg>
+<status status="PASS" start="2025-11-18T10:59:07.917310" elapsed="0.123245"/>
+</kw>
+<kw name="Input Text" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.042448" elapsed="0.026720"/>
+</kw>
+<msg time="2025-11-18T10:59:08.069563" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.042123" elapsed="0.027545"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:59:08.071408" level="INFO">Typing text 'bhargavreddy.s@mediakind.com' into text field '//input[@id='email']'.</msg>
+<arg>locator=${locator}</arg>
+<arg>text=${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.070766" elapsed="0.229601"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Input Text</arg>
+<arg>locator=${locator}</arg>
+<arg>text=${text}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.070119" elapsed="0.230515"/>
+</kw>
+<arg>locator=${LoginEmailId}</arg>
+<arg>text=${MSNC_USN}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Username is not entered</arg>
+<status status="PASS" start="2025-11-18T10:59:08.041140" elapsed="0.259923"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Entered Username: ${MSNC_USN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.301631" elapsed="0.001228"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LoginPassword}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.304300" elapsed="0.036055"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.342204" elapsed="0.018988"/>
+</kw>
+<msg time="2025-11-18T10:59:08.361597" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.341901" elapsed="0.019766"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:59:08.362939" level="INFO">Clicking element '//input[@id='secret']'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.362523" elapsed="0.085424"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.361989" elapsed="0.086079"/>
+</kw>
+<arg>locator=${LoginPassword}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Password input field is not available</arg>
+<status status="PASS" start="2025-11-18T10:59:08.340975" elapsed="0.107218"/>
+</kw>
+<kw name="Input Text" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.450335" elapsed="0.066729"/>
+</kw>
+<msg time="2025-11-18T10:59:08.517383" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.449899" elapsed="0.067613"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:59:08.519100" level="INFO">Typing text 'Bhargav@123' into text field '//input[@id='secret']'.</msg>
+<arg>locator=${locator}</arg>
+<arg>text=${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.518419" elapsed="0.114931"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Input Text</arg>
+<arg>locator=${locator}</arg>
+<arg>text=${text}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.517891" elapsed="0.115690"/>
+</kw>
+<arg>locator=${LoginPassword}</arg>
+<arg>text=${MSNC_PSW}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Password is not entered</arg>
+<status status="PASS" start="2025-11-18T10:59:08.448645" elapsed="0.185144"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Entered Password: ${MSNC_PSW}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.634654" elapsed="0.001143"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.636741" elapsed="0.025794"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.664854" elapsed="0.022954"/>
+</kw>
+<msg time="2025-11-18T10:59:08.688141" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.664414" elapsed="0.023810"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:59:08.689804" level="INFO">Clicking element '//button[@class='btn btn--primary btn--loader']'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.689193" elapsed="0.187832"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.688583" elapsed="0.188714"/>
+</kw>
+<arg>locator=${Login}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Login submit button is not available</arg>
+<status status="PASS" start="2025-11-18T10:59:08.663302" elapsed="0.214263"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T10:59:28.880022" level="INFO">Slept 20 seconds.</msg>
+<arg>20s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:59:08.878939" elapsed="20.001520"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:58:51.197938" elapsed="37.683810"/>
+</test>
+<test id="s1-s1-t2" name="Live24/7 Playback" line="33">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MSNC_Live}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:28.887063" elapsed="0.073686"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T10:59:28.963522" elapsed="0.036289"/>
+</kw>
+<msg time="2025-11-18T10:59:29.000175" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T10:59:28.963019" elapsed="0.037245"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T10:59:29.001799" level="INFO">Clicking element '//span[normalize-space()='On Now']'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T10:59:29.001320" elapsed="0.206719"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T10:59:29.000676" elapsed="0.207612"/>
+</kw>
+<arg>locator=${MSNC_Live}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Live channel click failed</arg>
+<status status="PASS" start="2025-11-18T10:59:28.961667" elapsed="0.246861"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:02:29.210442" level="INFO">Slept 3 minutes.</msg>
+<arg>3m</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T10:59:29.209240" elapsed="180.002173"/>
+</kw>
+<status status="PASS" start="2025-11-18T10:59:28.884841" elapsed="180.328585"/>
+</test>
+<test id="s1-s1-t3" name="VOD Playback" line="38">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MSNC_Discover}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:02:29.219830" elapsed="0.114885"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:02:29.340560" elapsed="0.078363"/>
+</kw>
+<msg time="2025-11-18T11:02:29.419562" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T11:02:29.339326" elapsed="0.080388"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:02:29.422593" level="INFO">Clicking element '(//span[normalize-space()='Home'])[1]'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:02:29.421615" elapsed="0.477651"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T11:02:29.420385" elapsed="0.479098"/>
+</kw>
+<arg>locator=${MSNC_Discover}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=VOD tab click failed</arg>
+<status status="PASS" start="2025-11-18T11:02:29.336760" elapsed="0.562958"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${MSNC_croll}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:02:29.900422" elapsed="0.351529"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MSNC_1card}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:02:30.253283" elapsed="4.295565"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:02:34.550131" elapsed="0.024987"/>
+</kw>
+<msg time="2025-11-18T11:02:34.575470" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T11:02:34.549881" elapsed="0.025679"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:02:34.577234" level="INFO">Clicking element '(//div[contains(@class, 'card-wrapper')]//a)[1]'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:02:34.576708" elapsed="0.238903"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T11:02:34.576078" elapsed="0.239753"/>
+</kw>
+<arg>locator=${MSNC_1card}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=VOD playback failed</arg>
+<status status="PASS" start="2025-11-18T11:02:34.549310" elapsed="0.266736"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:05:34.818137" level="INFO">Slept 3 minutes.</msg>
+<arg>3m</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:02:34.816693" elapsed="180.002087"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:02:29.217257" elapsed="185.603075"/>
+</test>
+<test id="s1-s1-t4" name="Logout" line="46">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MSNC_LG}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:05:34.825604" elapsed="0.392877"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:05:35.220726" elapsed="0.037045"/>
+</kw>
+<msg time="2025-11-18T11:05:35.258106" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T11:05:35.220340" elapsed="0.037846"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:05:35.259861" level="INFO">Clicking element '//div[@title='Bhargav Reddy S']'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:05:35.259174" elapsed="0.270146"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T11:05:35.258534" elapsed="0.271014"/>
+</kw>
+<arg>locator=${MSNC_LG}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Failed to logout (first step)</arg>
+<status status="PASS" start="2025-11-18T11:05:35.219380" elapsed="0.310441"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MSNC_Logout}</arg>
+<arg>${mid_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:05:35.530727" elapsed="1.264857"/>
+</kw>
+<kw name="Click Element" owner="WebCommon">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:05:36.800642" elapsed="0.076500"/>
+</kw>
+<msg time="2025-11-18T11:05:36.878038" level="INFO">${result} = True</msg>
+<var>${result}</var>
+<arg>SeleniumLibrary.Wait Until Element Is Visible</arg>
+<arg>locator=${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${Error_message}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-18T11:05:36.799522" elapsed="0.078749"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:05:36.883052" level="INFO">Clicking element '//span[normalize-space()='Log Out']'.</msg>
+<arg>locator=${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:05:36.881387" elapsed="0.419758"/>
+</kw>
+<arg>'${result}'=='True'</arg>
+<arg>SeleniumLibrary.Click Element</arg>
+<arg>locator=${locator}</arg>
+<arg>ELSE</arg>
+<arg>BuiltIn.Fail</arg>
+<arg>${Error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-18T11:05:36.879599" elapsed="0.422035"/>
+</kw>
+<arg>locator=${MSNC_Logout}</arg>
+<arg>timeout=${mid_timeout}</arg>
+<arg>Error_message=Failed to logout (final step)</arg>
+<status status="PASS" start="2025-11-18T11:05:36.797082" elapsed="0.505060"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Logout successful</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:05:37.303600" elapsed="0.001575"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:05:41.309396" level="INFO">Slept 4 seconds.</msg>
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:05:37.307451" elapsed="4.002532"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-18T11:05:41.311239" elapsed="2.479350"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:05:34.823221" elapsed="8.968208"/>
+</test>
+<status status="PASS" start="2025-11-18T10:58:50.650308" elapsed="413.143054"/>
+</suite>
+<status status="PASS" start="2025-11-18T10:58:50.588454" elapsed="413.207374"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="MSN ProdC" id="s1" pass="4" fail="0" skip="0">MSN ProdC</stat>
+<stat name="DailyBVT" id="s1-s1" pass="4" fail="0" skip="0">MSN ProdC.DailyBVT</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-11-18T10:58:51.171965" level="WARN">Error in file 'C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\resources\common\WebCommon.robot' on line 36: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>

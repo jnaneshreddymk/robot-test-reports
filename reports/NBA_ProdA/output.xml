@@ -1,0 +1,1501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-18T11:05:45.313587" rpa="false" schemaversion="5">
+<suite id="s1" name="NBA ProdA" source="C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\testcases\NBA_ProdA">
+<suite id="s1-s1" name="DailyBVT" source="C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\testcases\NBA_ProdA\DailyBVT.robot">
+<test id="s1-s1-t1" name="Generate tokens" line="14">
+<kw name="JWTTokenByIdentity" owner="prodATokenGenerationAPI">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-18T11:05:48.086151" level="INFO">Creating Session using : alias=alias, url=https://identity.nba.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias</arg>
+<arg>${prodA_identity}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-18T11:05:48.085914" elapsed="0.000495"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-18T11:05:48.086946" level="INFO">${headers} = {'content-type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-11-18T11:05:48.086625" elapsed="0.000367"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:05:48.087410" level="INFO">${identity_payload} = {"email": "Bhargavreddy@nba.com","password": "Bhargavreddy@nba.com","rememberMe": false}</msg>
+<var>${identity_payload}</var>
+<arg>{"email": "${prodA_UN1}","password": "${prodA_PW1}","rememberMe": false}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-18T11:05:48.087165" elapsed="0.000283"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-11-18T11:05:49.364121" level="INFO">POST Request : url=https://identity.nba.com/auth 
+ path_url=/auth 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '88'} 
+ body={"email": "Bhargavreddy@nba.com","password": "Bhargavreddy@nba.com","rememberMe": false} 
+ </msg>
+<msg time="2025-11-18T11:05:49.364565" level="INFO">POST Response : url=https://identity.nba.com/auth 
+ status=200, reason=OK 
+ headers={'x-api-version': '4.6.1', 'x-request-id': 'cZVuQLQ7pB', 'x-envoy-upstream-service-time': '436', 'Content-Encoding': 'gzip', 'Vary': 'Accept-Encoding', 'Content-Length': '1956', 'Expires': 'Tue, 18 Nov 2025 05:35:49 GMT', 'Cache-Control': 'max-age=0, no-cache, no-store', 'Pragma': 'no-cache', 'Date': 'Tue, 18 Nov 2025 05:35:49 GMT', 'Connection': 'keep-alive', 'Akamai-Request-BC': '[a=23.201.107.54,b=126388208,c=g,n=IN_TN_CHENNAI,o=20940],[c=c,n=US_WA_SEATTLE,o=20940],[a=6,c=o]', 'X-Frame-Options': 'DENY', 'X-Content-Type-Options': 'nosniff', 'Strict-Transport-Security': 'max-age=31536000', 'Content-Security-Policy': "frame-ancestors 'none'", 'Content-Type': 'application/json', 'Set-Cookie': '_abck=5654CB55EECEF06CB7EF059F4D5BC45F~-1~YAAQNmvJF2UqGHeaAQAAMEx2lQ4sFcITCBFIH38ACqKC5QhdSiM6jMefVyxYQoYQLij7sUegVUNtH0DGvkJsVlLEjZEERuNyn4GIUexpRQek1xqIDXOInEHW0kf/WSKWROWalMxvOAuqUQkHGaDMEcVRs7ZQ+vZfSp19xuAbQRTsHsi7adUHWPQxrmiCiM7xW9fSMU+UXA4ANZPnVONKbZDyZWeZBCHiaX0HbJ2bRiXMRUyzXTPHvQBd4w7wZ0oRC0DD0QnLa1gyybA3Vi+veQLWb6vdXts5lWPUfRH93o0lHrAw1L11nhTZ6MSlu4MForKnndboi4cEMjNdO+hNvYoKF32F5OlSwWuVw9aSxPVpEJuivX+jhgSZKy8vwxOdcOBVkxh/XT0AC/6dSWIC8F5jDyOlSlonEmEemR+o8Ps3Da0ZzFtrDP+PCunNMJDEI0c=~-1~-1~-1~-1~-1; Domain=.nba.com; Path=/; Expires=Wed, 18 Nov 2026 05:35:49 GMT; Max-Age=31536000; Secure, bm_sz=2C640012104749722A8693B653C96FA7~YAAQNmvJF2YqGHeaAQAAMEx2lR3AMQf7+qQj5ZvUYIIg7wDFnWMuUEfdMuslRrnj7jZbG29tSB8Y1A7hLDZbViaSJuCfdflNr/l46ucsJfcYueEF1TotcvGEgVsZDbO4fu7eeNzI+GcKF76t+cOHDCb4pBkZYjk7hzPOv+wSZrIG6wwYtwxE3U3JxMKM++oRLYVfbN13CxwQH8yc1+MoJ77F1NnupKDS9ejXzDC5MWLn6pgrnB4hAVdbmEhps9i3+fMzA+xG3KL3mZXx711h86r/nr1mu0LoUzwRlB9dpr7QXv1LJIoVBzeRyq/KzXNITzi07xirPOrHNzwTjryeO/VdXhatd6jr/WR4UPQ6jB/63y67AqV3yQgdEY2jXkcafjw=~3162934~3354949; Domain=.nba.com; Path=/; Expires=Tue, 18 Nov 2025 09:35:48 GMT; Max-Age=14399'} 
+ body={"status":"success","data":{"user":{"vipType":null,"created":"2024-02-21 10:55:10.798522 +0000","lastUpdated":"2025-10-26T12:08:52.570Z","region":"EU","env":"prod","favoritePlayers":[{"rank":null,"playerName":"Saddiq Bey","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":1630180,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Joel Embiid","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":203954,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"James Harden","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":201935,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Ja Morant","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":1629630,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Stephen Curry","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":201939,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Sam Hauser","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":1630573,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Jaylen Brown","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":1627759,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Giannis Antetokounmpo","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":203507,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Tyrese Maxey","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":1630178,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Oshae Brissett","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":1629052,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Victor Wembanyama","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":1641705,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Bogdan Bogdanović","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":203992,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Anthony Davis","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":203076,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"DeMar DeRozan","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":201942,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"LaMarcus Aldridge","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":200746,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"LeBron James","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":2544,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Kobe Bufkin","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":1641723,"leagueId":"00","league":"NBA"},{"rank":null,"playerName":"Steven Adams","playerFirstName":null,"playerLastName":null,"alternatePlayerName":null,"favorited":false,"followed":true,"playerId":203500,"leagueId":"00","league":"NBA"}],"favoriteTeams":[{"rank":1610612751,"teamId":1610612751,"leagueId":"00","league":"NBA","teamTriCode":"BKN","favorited":true,"followed":true},{"rank":1610612737,"teamId":1610612737,"leagueId":"00","league":"NBA","teamTriCode":"ATL","favorited":false,"followed":true},{"rank":1610612738,"teamId":1610612738,"leagueId":"00","league":"NBA","teamTriCode":"BOS","favorited":false,"followed":true},{"rank":1610612745,"teamId":1610612745,"leagueId":"00","league":"NBA","teamTriCode":"HOU","favorited":false,"followed":true}],"alternateIds":{"NBACIAMGUID":"384d6b89-04c1-47c7-878a-8e03e57dd275","endeavorCustomerId":null,"amplitudeId":null,"brazeId":"65d5d6956c16bc0042f24ff1","evergentId":"250626125820979","membershipId":"406643308","yinzId":null,"adobe_ECID":"41141574124083791200429074452114976056","isOPiNUser":null},"emailProperties":{"recoveryEmailVerified":null},"personalDetails":{"languagePreference":"en-US","dob":{"dobDate":"2001-03-01","dobDay":"1","dobMonth":"3","dobYear":"2001"}},"governance":{"emailCommunicationConsent":1,"partnerSharingConsent":null,"privacyPolicyAcceptance":1,"emailCommunicationConsentTimestamp":"2024-02-21 10:55:10.393 +0000","partnerSharingConsentTimestamp":null,"privacyPolicyAcceptanceTimestamp":"2024-02-21 10:55:10.393 +0000","wnbaEmailCommunicationConsent":null,"wnbaEmailCommunicationConsentTimestamp":null,"originLeague":"NBA","doNotSell":null},"pushNotificationPreferences":[],"emailSubscriptionPreferences":[],"extendedProfile":[],"email":"bhargavreddy@nba.com","billingAddress":null,"givenName":"Bhargav","familyName":"Reddy"},"ttl":1766036149,"jwt":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODRkNmI4OS0wNGMxLTQ3YzctODc4YS04ZTAzZTU3ZGQyNzUiLCJwaW5nU3ViIjoiYzFjNzU1MmYtM2JmMC00YTdiLWI4NzEtZmFiYWM5NTQyNzJhIiwiZXhwIjoxNzYzNDQ1OTQ5LCJub25jZSI6Ijk0ZmFhZWUyLTIyODYtNDA3Ny1hYjUwLTU1ODJlOTk0OGY3MiIsIm5iYUN1c3RvbWVyIjoiMzg0ZDZiODktMDRjMS00N2M3LTg3OGEtOGUwM2U1N2RkMjc1IiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uYmEuY29tIiwicmVnaW9uIjoiRVUiLCJodHRwOi8vbWVkaWFraW5kLmNvbS9tZi90aWQiOiJkZWZhdWx0IiwiY2xpZW50X2lkIjoiczZPaWMzQ2s0Z2VBcEI1WER6OFU1a3VPV3VycS1VdU1UVU9oS0d0S3ExZyIsImlhdCI6MTc2MzQ0NDE0OX0.i7Qt9XyHnK_4Se8IFKV2lUhdqOYS4YBvEM5S8Mh5PVXGPkkFcM5bUPsvr_RgiLhM2fFoK7C__jglgSk_N22Kcs-Nar5l0m_nNzHhqn6VuYTUmZf29C0GusgEKwx39kbd2_Bjz0G2eOn9ttLsA4WyZ76O6q3ROdf9OEr5tApiXFdmPJGmpvBIEd4DTCjqH-1KWtTynRuKC9xbHoRsTmXFsQ_8cmqmTn-fC4MTEJ_-suUAre17s5qn8jAs5GbKAOzp5Vhcdhmrkiyjs5wgyllmRJF4lmqSFV06jDnMJFby2nL9p8rfCd2N99rMspqsKsuCGmGURhamr3-Gg4IKPnEMrw","refreshToken":"34b0e5ed296bfc2b7a4cd9f1a3074563f329fbc35a2c35528a737c108735f90863c66e2b4a91f093"}} 
+ </msg>
+<msg time="2025-11-18T11:05:49.365073" level="INFO">C:\Users\Jnanesha.Reddy\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'identity.nba.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-18T11:05:49.365882" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias</arg>
+<arg>/auth</arg>
+<arg>headers=${headers}</arg>
+<arg>data=${identity_payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-11-18T11:05:48.087605" elapsed="1.278382"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:05:49.366432" elapsed="0.003202"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:05:49.370001" elapsed="0.006953"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-11-18T11:05:49.381763" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>${code}</arg>
+<arg>${response.status_code}</arg>
+<arg>msg=${msg}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-11-18T11:05:49.377370" elapsed="0.004554"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-11-18T11:05:49.542257" level="INFO">${json_object} = ['eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODRkNmI4OS0wNGMxLTQ3YzctODc4YS04ZTAzZTU3ZGQyNzUiLCJwaW5nU3ViIjoiYzFjNzU1MmYtM2JmMC00YTdiLWI4NzEtZmFiYWM5NTQyNzJhIiwiZXhwIjoxNzYzNDQ1OTQ5LCJub25jZSI6I...</msg>
+<var>${json_object}</var>
+<arg>${response.json()}</arg>
+<arg>$.data.jwt</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-11-18T11:05:49.382242" elapsed="0.160087"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:05:49.542958" level="INFO">${jwt_token} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODRkNmI4OS0wNGMxLTQ3YzctODc4YS04ZTAzZTU3ZGQyNzUiLCJwaW5nU3ViIjoiYzFjNzU1MmYtM2JmMC00YTdiLWI4NzEtZmFiYWM5NTQyNzJhIiwiZXhwIjoxNzYzNDQ1OTQ5LCJub25jZSI6Ijk...</msg>
+<var>${jwt_token}</var>
+<arg>${json_object}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-18T11:05:49.542632" elapsed="0.000395"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n${jwt_token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:05:49.543252" elapsed="0.000863"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:05:49.544750" level="INFO">${jwt_token} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODRkNmI4OS0wNGMxLTQ3YzctODc4YS04ZTAzZTU3ZGQyNzUiLCJwaW5nU3ViIjoiYzFjNzU1MmYtM2JmMC00YTdiLWI4NzEtZmFiYWM5NTQyNzJhIiwiZXhwIjoxNzYzNDQ1OTQ5LCJub25jZSI6Ijk...</msg>
+<arg>${jwt_token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:05:49.544426" elapsed="0.000402"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:05:48.084603" elapsed="1.460351"/>
+</kw>
+<kw name="ClientTokenByJWTSignin" owner="prodATokenGenerationAPI">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-18T11:05:49.546415" level="INFO">Creating Session using : alias=alias, url=https://appgw-client-a.proda.nba.tv3cloud.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias</arg>
+<arg>${prodA_jwtsignin}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-18T11:05:49.546187" elapsed="0.000432"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-18T11:05:49.547027" level="INFO">${headers} = {'content-type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-11-18T11:05:49.546795" elapsed="0.000271"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-18T11:05:49.547509" level="INFO">${params} = {'jwtTokenRequest': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODRkNmI4OS0wNGMxLTQ3YzctODc4YS04ZTAzZTU3ZGQyNzUiLCJwaW5nU3ViIjoiYzFjNzU1MmYtM2JmMC00YTdiLWI4NzEtZmFiYWM5NTQyNzJhIiwiZXhwIjoxNzYzND...</msg>
+<var>${params}</var>
+<arg>jwtTokenRequest=${jwt_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-11-18T11:05:49.547225" elapsed="0.000325"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-11-18T11:05:51.433110" level="INFO">GET Request : url=https://appgw-client-a.proda.nba.tv3cloud.com/S1/sts/v1/oauth/jwtsignin?jwtTokenRequest=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODRkNmI4OS0wNGMxLTQ3YzctODc4YS04ZTAzZTU3ZGQyNzUiLCJwaW5nU3ViIjoiYzFjNzU1MmYtM2JmMC00YTdiLWI4NzEtZmFiYWM5NTQyNzJhIiwiZXhwIjoxNzYzNDQ1OTQ5LCJub25jZSI6Ijk0ZmFhZWUyLTIyODYtNDA3Ny1hYjUwLTU1ODJlOTk0OGY3MiIsIm5iYUN1c3RvbWVyIjoiMzg0ZDZiODktMDRjMS00N2M3LTg3OGEtOGUwM2U1N2RkMjc1IiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uYmEuY29tIiwicmVnaW9uIjoiRVUiLCJodHRwOi8vbWVkaWFraW5kLmNvbS9tZi90aWQiOiJkZWZhdWx0IiwiY2xpZW50X2lkIjoiczZPaWMzQ2s0Z2VBcEI1WER6OFU1a3VPV3VycS1VdU1UVU9oS0d0S3ExZyIsImlhdCI6MTc2MzQ0NDE0OX0.i7Qt9XyHnK_4Se8IFKV2lUhdqOYS4YBvEM5S8Mh5PVXGPkkFcM5bUPsvr_RgiLhM2fFoK7C__jglgSk_N22Kcs-Nar5l0m_nNzHhqn6VuYTUmZf29C0GusgEKwx39kbd2_Bjz0G2eOn9ttLsA4WyZ76O6q3ROdf9OEr5tApiXFdmPJGmpvBIEd4DTCjqH-1KWtTynRuKC9xbHoRsTmXFsQ_8cmqmTn-fC4MTEJ_-suUAre17s5qn8jAs5GbKAOzp5Vhcdhmrkiyjs5wgyllmRJF4lmqSFV06jDnMJFby2nL9p8rfCd2N99rMspqsKsuCGmGURhamr3-Gg4IKPnEMrw 
+ path_url=/S1/sts/v1/oauth/jwtsignin?jwtTokenRequest=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODRkNmI4OS0wNGMxLTQ3YzctODc4YS04ZTAzZTU3ZGQyNzUiLCJwaW5nU3ViIjoiYzFjNzU1MmYtM2JmMC00YTdiLWI4NzEtZmFiYWM5NTQyNzJhIiwiZXhwIjoxNzYzNDQ1OTQ5LCJub25jZSI6Ijk0ZmFhZWUyLTIyODYtNDA3Ny1hYjUwLTU1ODJlOTk0OGY3MiIsIm5iYUN1c3RvbWVyIjoiMzg0ZDZiODktMDRjMS00N2M3LTg3OGEtOGUwM2U1N2RkMjc1IiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uYmEuY29tIiwicmVnaW9uIjoiRVUiLCJodHRwOi8vbWVkaWFraW5kLmNvbS9tZi90aWQiOiJkZWZhdWx0IiwiY2xpZW50X2lkIjoiczZPaWMzQ2s0Z2VBcEI1WER6OFU1a3VPV3VycS1VdU1UVU9oS0d0S3ExZyIsImlhdCI6MTc2MzQ0NDE0OX0.i7Qt9XyHnK_4Se8IFKV2lUhdqOYS4YBvEM5S8Mh5PVXGPkkFcM5bUPsvr_RgiLhM2fFoK7C__jglgSk_N22Kcs-Nar5l0m_nNzHhqn6VuYTUmZf29C0GusgEKwx39kbd2_Bjz0G2eOn9ttLsA4WyZ76O6q3ROdf9OEr5tApiXFdmPJGmpvBIEd4DTCjqH-1KWtTynRuKC9xbHoRsTmXFsQ_8cmqmTn-fC4MTEJ_-suUAre17s5qn8jAs5GbKAOzp5Vhcdhmrkiyjs5wgyllmRJF4lmqSFV06jDnMJFby2nL9p8rfCd2N99rMspqsKsuCGmGURhamr3-Gg4IKPnEMrw 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json'} 
+ body=None 
+ </msg>
+<msg time="2025-11-18T11:05:51.433353" level="INFO">GET Response : url=https://appgw-client-a.proda.nba.tv3cloud.com/S1/sts/v1/oauth/jwtsignin?jwtTokenRequest=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODRkNmI4OS0wNGMxLTQ3YzctODc4YS04ZTAzZTU3ZGQyNzUiLCJwaW5nU3ViIjoiYzFjNzU1MmYtM2JmMC00YTdiLWI4NzEtZmFiYWM5NTQyNzJhIiwiZXhwIjoxNzYzNDQ1OTQ5LCJub25jZSI6Ijk0ZmFhZWUyLTIyODYtNDA3Ny1hYjUwLTU1ODJlOTk0OGY3MiIsIm5iYUN1c3RvbWVyIjoiMzg0ZDZiODktMDRjMS00N2M3LTg3OGEtOGUwM2U1N2RkMjc1IiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uYmEuY29tIiwicmVnaW9uIjoiRVUiLCJodHRwOi8vbWVkaWFraW5kLmNvbS9tZi90aWQiOiJkZWZhdWx0IiwiY2xpZW50X2lkIjoiczZPaWMzQ2s0Z2VBcEI1WER6OFU1a3VPV3VycS1VdU1UVU9oS0d0S3ExZyIsImlhdCI6MTc2MzQ0NDE0OX0.i7Qt9XyHnK_4Se8IFKV2lUhdqOYS4YBvEM5S8Mh5PVXGPkkFcM5bUPsvr_RgiLhM2fFoK7C__jglgSk_N22Kcs-Nar5l0m_nNzHhqn6VuYTUmZf29C0GusgEKwx39kbd2_Bjz0G2eOn9ttLsA4WyZ76O6q3ROdf9OEr5tApiXFdmPJGmpvBIEd4DTCjqH-1KWtTynRuKC9xbHoRsTmXFsQ_8cmqmTn-fC4MTEJ_-suUAre17s5qn8jAs5GbKAOzp5Vhcdhmrkiyjs5wgyllmRJF4lmqSFV06jDnMJFby2nL9p8rfCd2N99rMspqsKsuCGmGURhamr3-Gg4IKPnEMrw 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 18 Nov 2025 05:35:51 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '683', 'Connection': 'keep-alive', 'cache-control': 'no-store, no-cache, max-age=0', 'expires': 'Mon, 17 Nov 2025 05:35:51 GMT', 'x-icid': 'd0c8d3822e974735a80b1254f24e8542', 'x-envoy-upstream-service-time': '8', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'X-Frame-Options': 'SAMEORIGIN', 'Vary': 'Content-Encoding,Origin,Authorization'} 
+ body={"AccessToken":"AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX_cD7rHlkpmxVqqsmaGlKwxTSkbqUuJNUXeWAsNL65w0ENe2dbinZ58LjrvwyPaFz79WlwnjLPuTamdMWF6in2T_N3zif-58MememdiSOEu_-zzpSt57Er8pasYPLZpWicT3Rpj0U15G6L7rrMLw5lOu5ZwRRhllAtOCCUNcCZVA0CJYrVQEoSQkgJhXAkJnBNOQCguayUFr4EAVUBZTeiMeQMMJCdiBrI42Y8uYjofWtIIQeBoLpYRdUb7TFLG2JxXfMLDh8nZVgM0zGpRakugZMjrUlMkJbVCi7WwoDkUp2fd8vK0Ay7am_rym7_5PH6ku3TxcHJ7rw5LBW5zztTV10gmeb_b-P2XC79ZLaj9AQ","ExpiryTime":"2025-12-19T05:35:51.3360498Z","TokenIdentifier":"384d6b89-04c1-47c7-878a-8e03e57dd275"} 
+ </msg>
+<msg time="2025-11-18T11:05:51.433598" level="INFO">C:\Users\Jnanesha.Reddy\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'appgw-client-a.proda.nba.tv3cloud.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-18T11:05:51.434691" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias</arg>
+<arg>/S1/sts/v1/oauth/jwtsignin</arg>
+<arg>params=${params}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-11-18T11:05:49.547704" elapsed="1.887097"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.435285" elapsed="0.003373"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.439042" elapsed="0.003314"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-11-18T11:05:51.448356" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>${code}</arg>
+<arg>${response.status_code}</arg>
+<arg>msg=${msg}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.442810" elapsed="0.005753"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-11-18T11:05:51.497714" level="INFO">${json_object} = ['AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqv...</msg>
+<var>${json_object}</var>
+<arg>${response.json()}</arg>
+<arg>$.AccessToken</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-11-18T11:05:51.449030" elapsed="0.048815"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:05:51.498609" level="INFO">${access_token} = AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX...</msg>
+<var>${access_token}</var>
+<arg>${json_object}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.498207" elapsed="0.000466"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:05:51.499322" level="INFO">${client_token} = OAUTH2 access_token=""</msg>
+<var>${client_token}</var>
+<arg>OAUTH2 access_token="${prodA_access_token}"</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.498945" elapsed="0.000422"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${prodA_client_token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.499582" elapsed="0.000848"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:05:51.501674" level="INFO">${access_token} = AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX...</msg>
+<arg>${access_token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.501102" elapsed="0.000693"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:05:51.502322" level="INFO">${client_token} = OAUTH2 access_token=""</msg>
+<arg>${client_token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.502060" elapsed="0.000323"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:05:49.545654" elapsed="1.956840"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:05:48.083577" elapsed="3.419466"/>
+</test>
+<test id="s1-s1-t2" name="Check Azure SitA Live playback in Chrome" line="18">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:05:51.506710" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nba.tv3cloud.com/S1/kss/sign...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.506061" elapsed="0.000702"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.506982" elapsed="0.001324"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:05:51.508776" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nba.tv3cloud.com/S1/kss/sign...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:05:51.508547" elapsed="0.000291"/>
+</kw>
+<arg>amp_url=${prodA_amp}</arg>
+<arg>kssurl=${prodA_kssurl}</arg>
+<arg>mediauid=NBATVI</arg>
+<arg>Applicationtoken=1024</arg>
+<arg>playback_mode=LIVE</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:05:51.505166" elapsed="0.003762"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:05:51.510318" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:05:54.541426" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:05:55.741952" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:05:56.707249" level="INFO">There is no [win64] chromedriver "142.0.7444.175" for browser google-chrome "142.0.7444" in cache</msg>
+<msg time="2025-11-18T11:05:56.707667" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:05:59.797276" level="INFO">WebDriver version 142.0.7444.175 selected</msg>
+<msg time="2025-11-18T11:05:59.808567" level="INFO">Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/142.0.7444.175/win32/chromedriver-win32.zip</msg>
+<msg time="2025-11-18T11:05:59.808900" level="INFO">About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/142.0.7444.175/win32/chromedriver-win32.zip</msg>
+<msg time="2025-11-18T11:06:01.789506" level="INFO">Driver downloading response is 200</msg>
+<msg time="2025-11-18T11:06:03.711819" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:06:07.394729" level="INFO">Driver has been saved in cache [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175]</msg>
+<msg time="2025-11-18T11:06:07.400207" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x000002596981EF90&gt;</msg>
+<msg time="2025-11-18T11:06:07.400543" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x000002596981EF90&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:05:51.509996" elapsed="15.890629"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:06:07.401849" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nba.tv3cloud.com/S1/kss/signkey&amp;media-uid=NBATVI&amp;playback-mode=LIVE&amp;app-token=1024&amp;owner-uid=azuki&amp;sts-token=AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX_cD7rHlkpmxVqqsmaGlKwxTSkbqUuJNUXeWAsNL65w0ENe2dbinZ58LjrvwyPaFz79WlwnjLPuTamdMWF6in2T_N3zif-58MememdiSOEu_-zzpSt57Er8pasYPLZpWicT3Rpj0U15G6L7rrMLw5lOu5ZwRRhllAtOCCUNcCZVA0CJYrVQEoSQkgJhXAkJnBNOQCguayUFr4EAVUBZTeiMeQMMJCdiBrI42Y8uYjofWtIIQeBoLpYRdUb7TFLG2JxXfMLDh8nZVgM0zGpRakugZMjrUlMkJbVCi7WwoDkUp2fd8vK0Ay7am_rym7_5PH6ku3TxcHJ7rw5LBW5zztTV10gmeb_b-P2XC79ZLaj9AQ&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:06:07.401081" elapsed="15.283768"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:06:22.685512" elapsed="0.148319"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:05:51.509580" elapsed="31.324846"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:06:27.837277" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:06:22.835867" elapsed="5.001727"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:06:27.839517" elapsed="0.337358"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:06:27.838300" elapsed="0.338880"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:06:28.178745" elapsed="0.067102"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:06:28.248204" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:06:28.247577" elapsed="0.196822"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:06:28.246416" elapsed="0.198288"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:06:28.177638" elapsed="0.267207"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:06:28.445921" elapsed="0.047843"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:06:28.496373" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:06:28.495717" elapsed="0.209338"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:06:28.494338" elapsed="0.210943"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:06:28.445253" elapsed="0.260192"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:06:22.835186" elapsed="5.870410"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:06:28.707840" elapsed="0.290675"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:06:28.707080" elapsed="0.291683"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:07:29.376693" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:07:29.377454" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:06:28.999477" elapsed="60.385794">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:07:29.385822" elapsed="0.000102"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:07:29.386217" elapsed="0.000106"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:06:28.706223" elapsed="60.680587">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:07:29.387796" elapsed="0.000084"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:07:29.388522" elapsed="0.000106"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:05:51.503960" elapsed="97.885470">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<test id="s1-s1-t3" name="Check Azure SitA VOD playback in Chrome" line="35">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:07:29.395109" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nba.tv3cloud.com/S1/kss/sign...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:07:29.394247" elapsed="0.000952"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:07:29.395541" elapsed="0.001439"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:07:29.398676" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nba.tv3cloud.com/S1/kss/sign...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:07:29.397882" elapsed="0.001021"/>
+</kw>
+<arg>amp_url=${prodA_amp}</arg>
+<arg>kssurl=${prodA_kssurl}</arg>
+<arg>mediauid=NBA_RADS2003251900076081_Jitp_Reach_HD</arg>
+<arg>Applicationtoken=</arg>
+<arg>playback_mode=VOD</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:07:29.392773" elapsed="0.006450"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:07:29.402628" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:07:31.419155" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:07:32.802433" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:07:34.038223" level="INFO">Driver [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2025-11-18T11:07:34.039614" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x000002596A49D1D0&gt;</msg>
+<msg time="2025-11-18T11:07:34.040044" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x000002596A49D1D0&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:07:29.401875" elapsed="4.638298"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:07:34.042024" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nba.tv3cloud.com/S1/kss/signkey&amp;media-uid=NBA_RADS2003251900076081_Jitp_Reach_HD&amp;playback-mode=VOD&amp;app-token=&amp;owner-uid=azuki&amp;sts-token=AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX_cD7rHlkpmxVqqsmaGlKwxTSkbqUuJNUXeWAsNL65w0ENe2dbinZ58LjrvwyPaFz79WlwnjLPuTamdMWF6in2T_N3zif-58MememdiSOEu_-zzpSt57Er8pasYPLZpWicT3Rpj0U15G6L7rrMLw5lOu5ZwRRhllAtOCCUNcCZVA0CJYrVQEoSQkgJhXAkJnBNOQCguayUFr4EAVUBZTeiMeQMMJCdiBrI42Y8uYjofWtIIQeBoLpYRdUb7TFLG2JxXfMLDh8nZVgM0zGpRakugZMjrUlMkJbVCi7WwoDkUp2fd8vK0Ay7am_rym7_5PH6ku3TxcHJ7rw5LBW5zztTV10gmeb_b-P2XC79ZLaj9AQ&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:07:34.040870" elapsed="7.163148"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:07:41.204738" elapsed="0.296770"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:07:29.400431" elapsed="12.101269"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:07:46.503591" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:07:41.503004" elapsed="5.000869"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:07:46.505673" elapsed="0.320623"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:07:46.504584" elapsed="0.322401"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:07:46.830556" elapsed="0.074980"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:07:46.907188" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:07:46.906763" elapsed="0.177459"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:07:46.906000" elapsed="0.178367"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:07:46.828144" elapsed="0.256315"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:07:47.085134" elapsed="0.043308"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:07:47.130110" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:07:47.129675" elapsed="0.151643"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:07:47.128905" elapsed="0.152710"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:07:47.084684" elapsed="0.197231"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:07:41.502336" elapsed="5.779811"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:07:47.284987" elapsed="0.306146"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:07:47.284200" elapsed="0.307776"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:08:48.367376" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:08:48.367829" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:07:47.592681" elapsed="60.779743">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:08:48.373391" elapsed="0.000126"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:08:48.373924" elapsed="0.000088"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:07:47.283078" elapsed="61.091451">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:08:48.375467" elapsed="0.000225"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:08:48.376593" elapsed="0.000112"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:07:29.391327" elapsed="78.986355">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<test id="s1-s1-t4" name="Check Azure SiteB Live playback in Chrome" line="57">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:08:48.385955" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signk...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:08:48.384165" elapsed="0.001938"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:08:48.386663" elapsed="0.001673"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:08:48.389897" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signk...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:08:48.388995" elapsed="0.001090"/>
+</kw>
+<arg>amp_url=${prodSB_amp}</arg>
+<arg>kssurl=${prodSB_kssurl}</arg>
+<arg>mediauid=NBATVI</arg>
+<arg>Applicationtoken=1024</arg>
+<arg>playback_mode=LIVE</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:08:48.381735" elapsed="0.008589"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:08:48.392707" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:08:50.616256" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:08:51.900854" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:08:53.005115" level="INFO">Driver [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2025-11-18T11:08:53.005979" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x000002596A49DBD0&gt;</msg>
+<msg time="2025-11-18T11:08:53.006255" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x000002596A49DBD0&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:08:48.392049" elapsed="4.614364"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:08:53.008025" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signkey&amp;media-uid=NBATVI&amp;playback-mode=LIVE&amp;app-token=1024&amp;owner-uid=azuki&amp;sts-token=AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX_cD7rHlkpmxVqqsmaGlKwxTSkbqUuJNUXeWAsNL65w0ENe2dbinZ58LjrvwyPaFz79WlwnjLPuTamdMWF6in2T_N3zif-58MememdiSOEu_-zzpSt57Er8pasYPLZpWicT3Rpj0U15G6L7rrMLw5lOu5ZwRRhllAtOCCUNcCZVA0CJYrVQEoSQkgJhXAkJnBNOQCguayUFr4EAVUBZTeiMeQMMJCdiBrI42Y8uYjofWtIIQeBoLpYRdUb7TFLG2JxXfMLDh8nZVgM0zGpRakugZMjrUlMkJbVCi7WwoDkUp2fd8vK0Ay7am_rym7_5PH6ku3TxcHJ7rw5LBW5zztTV10gmeb_b-P2XC79ZLaj9AQ&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:08:53.007164" elapsed="6.887476"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:08:59.895104" elapsed="0.129460"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:08:48.391098" elapsed="11.633661"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:09:05.026980" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:09:00.026277" elapsed="5.001215"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:09:05.030448" elapsed="0.350480"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:09:05.028514" elapsed="0.353224"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:09:05.386206" elapsed="0.103538"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:09:05.491675" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:09:05.491232" elapsed="0.162447"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:09:05.490344" elapsed="0.163680"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:09:05.383145" elapsed="0.271052"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:09:05.655690" elapsed="0.054004"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:09:05.712367" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:09:05.711703" elapsed="0.172424"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:09:05.710448" elapsed="0.174125"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:09:05.654684" elapsed="0.230119"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:09:00.025484" elapsed="5.859522"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:09:05.888332" elapsed="0.313592"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:09:05.887391" elapsed="0.315465"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:10:06.993114" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:10:06.993689" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:09:06.204029" elapsed="60.793747">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:10:06.998527" elapsed="0.000113"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:10:06.999145" elapsed="0.000084"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:09:05.886017" elapsed="61.113478">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:10:07.000154" elapsed="0.000098"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:10:07.000849" elapsed="0.000129"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:08:48.379884" elapsed="78.621638">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<test id="s1-s1-t5" name="Check Azure SiteB VOD playback in Chrome" line="74">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:10:07.006781" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signk...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:10:07.005684" elapsed="0.001188"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:10:07.007213" elapsed="0.001454"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:10:07.010180" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signk...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:10:07.009343" elapsed="0.001066"/>
+</kw>
+<arg>amp_url=${prodSB_amp}</arg>
+<arg>kssurl=${prodSB_kssurl}</arg>
+<arg>mediauid=NBA_RADS2003251900076081_Jitp_Reach_HD</arg>
+<arg>Applicationtoken=</arg>
+<arg>playback_mode=VOD</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:10:07.004246" elapsed="0.006482"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:10:07.014400" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:10:09.104968" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:10:10.406946" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:10:12.885124" level="INFO">Driver [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2025-11-18T11:10:12.885843" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x000002596A495480&gt;</msg>
+<msg time="2025-11-18T11:10:12.886105" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x000002596A495480&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:10:07.013501" elapsed="5.872661"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:10:12.886933" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nba.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signkey&amp;media-uid=NBA_RADS2003251900076081_Jitp_Reach_HD&amp;playback-mode=VOD&amp;app-token=&amp;owner-uid=azuki&amp;sts-token=AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX_cD7rHlkpmxVqqsmaGlKwxTSkbqUuJNUXeWAsNL65w0ENe2dbinZ58LjrvwyPaFz79WlwnjLPuTamdMWF6in2T_N3zif-58MememdiSOEu_-zzpSt57Er8pasYPLZpWicT3Rpj0U15G6L7rrMLw5lOu5ZwRRhllAtOCCUNcCZVA0CJYrVQEoSQkgJhXAkJnBNOQCguayUFr4EAVUBZTeiMeQMMJCdiBrI42Y8uYjofWtIIQeBoLpYRdUb7TFLG2JxXfMLDh8nZVgM0zGpRakugZMjrUlMkJbVCi7WwoDkUp2fd8vK0Ay7am_rym7_5PH6ku3TxcHJ7rw5LBW5zztTV10gmeb_b-P2XC79ZLaj9AQ&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:10:12.886481" elapsed="12.368858"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:10:25.256075" elapsed="0.173930"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:10:07.011927" elapsed="18.418348"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:10:30.432671" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:10:25.431832" elapsed="5.001169"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:10:30.434982" elapsed="0.326948"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:10:30.433747" elapsed="0.328418"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:10:30.763265" elapsed="0.034423"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:10:30.799422" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:10:30.798970" elapsed="0.150103"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:10:30.798164" elapsed="0.151275"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:10:30.762553" elapsed="0.187072"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:10:30.951024" elapsed="0.049371"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:10:31.002631" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:10:31.002061" elapsed="0.142755"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:10:31.001016" elapsed="0.144170"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:10:30.950121" elapsed="0.195211"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:10:25.431096" elapsed="5.714392"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:10:31.147994" elapsed="0.311240"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:10:31.147256" elapsed="0.312218"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:11:31.804877" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:11:31.805091" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:10:31.459820" elapsed="60.348495">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:11:31.808767" elapsed="0.000089"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:11:31.809244" elapsed="0.000139"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:10:31.146360" elapsed="60.663427">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:11:31.810412" elapsed="0.000069"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:11:31.811035" elapsed="0.000093"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:10:07.002933" elapsed="84.808691">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<test id="s1-s1-t6" name="Check AWS SiteA Live playback in Chrome" line="95">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:11:31.815921" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nb.tv3cloud.com/S1/kss/signke...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:11:31.815167" elapsed="0.000812"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:11:31.816238" elapsed="0.000750"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:11:31.817752" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nb.tv3cloud.com/S1/kss/signke...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:11:31.817310" elapsed="0.000543"/>
+</kw>
+<arg>amp_url=${prodAWSA_amp}</arg>
+<arg>kssurl=${prodAWSA_kssurl}</arg>
+<arg>mediauid=NBATVI</arg>
+<arg>Applicationtoken=1024</arg>
+<arg>playback_mode=LIVE</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:11:31.814211" elapsed="0.003747"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:11:31.821059" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:11:33.830796" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:11:35.261292" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:11:36.817630" level="INFO">Driver [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2025-11-18T11:11:36.818672" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x000002596A495810&gt;</msg>
+<msg time="2025-11-18T11:11:36.819105" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x000002596A495810&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:11:31.820478" elapsed="4.998730"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:11:36.820573" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nb.tv3cloud.com/S1/kss/signkey&amp;media-uid=NBATVI&amp;playback-mode=LIVE&amp;app-token=1024&amp;owner-uid=azuki&amp;sts-token=AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX_cD7rHlkpmxVqqsmaGlKwxTSkbqUuJNUXeWAsNL65w0ENe2dbinZ58LjrvwyPaFz79WlwnjLPuTamdMWF6in2T_N3zif-58MememdiSOEu_-zzpSt57Er8pasYPLZpWicT3Rpj0U15G6L7rrMLw5lOu5ZwRRhllAtOCCUNcCZVA0CJYrVQEoSQkgJhXAkJnBNOQCguayUFr4EAVUBZTeiMeQMMJCdiBrI42Y8uYjofWtIIQeBoLpYRdUb7TFLG2JxXfMLDh8nZVgM0zGpRakugZMjrUlMkJbVCi7WwoDkUp2fd8vK0Ay7am_rym7_5PH6ku3TxcHJ7rw5LBW5zztTV10gmeb_b-P2XC79ZLaj9AQ&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:11:36.819769" elapsed="8.211165"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:11:45.031983" elapsed="0.216075"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:11:31.819073" elapsed="13.429177"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:11:50.250751" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:11:45.249341" elapsed="5.001901"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:11:50.253381" elapsed="0.336143"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:11:50.252051" elapsed="0.337976"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:11:50.592437" elapsed="0.056434"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:11:50.650780" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:11:50.650179" elapsed="0.175486"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:11:50.649347" elapsed="0.176563"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:11:50.590869" elapsed="0.235207"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:11:50.827176" elapsed="0.052242"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:11:50.881346" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:11:50.880884" elapsed="0.139962"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:11:50.879991" elapsed="0.141031"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:11:50.826459" elapsed="0.194700"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:11:45.248822" elapsed="5.772423"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:11:51.022768" elapsed="0.311780"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:11:51.022364" elapsed="0.312599"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:12:51.955096" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:12:51.955683" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:11:51.335493" elapsed="60.624161">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:12:51.960492" elapsed="0.000154"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:12:51.961166" elapsed="0.000129"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:11:51.021785" elapsed="60.939950">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:12:51.962913" elapsed="0.000086"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:12:51.963752" elapsed="0.000102"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:11:31.812780" elapsed="80.151952">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<test id="s1-s1-t7" name="Check AWS SiteA VOD playback in Chrome" line="112">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:12:51.971404" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nb.tv3cloud.com/S1/kss/signke...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:12:51.970455" elapsed="0.001062"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:12:51.971987" elapsed="0.001441"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:12:51.975039" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nb.tv3cloud.com/S1/kss/signke...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:12:51.974219" elapsed="0.001041"/>
+</kw>
+<arg>amp_url=${prodAWSA_amp}</arg>
+<arg>kssurl=${prodAWSA_kssurl}</arg>
+<arg>mediauid=NBA_RADS2003251900076081_Jitp_Reach_HD</arg>
+<arg>Applicationtoken=</arg>
+<arg>playback_mode=VOD</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:12:51.968866" elapsed="0.006714"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:12:51.978134" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:12:54.052058" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:12:55.577464" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:12:57.104763" level="INFO">Driver [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2025-11-18T11:12:57.106129" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x000002596A8F84D0&gt;</msg>
+<msg time="2025-11-18T11:12:57.106654" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x000002596A8F84D0&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:12:51.977409" elapsed="5.129511"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:12:57.108730" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-a.proda.nb.tv3cloud.com/S1/kss/signkey&amp;media-uid=NBA_RADS2003251900076081_Jitp_Reach_HD&amp;playback-mode=VOD&amp;app-token=&amp;owner-uid=azuki&amp;sts-token=AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX_cD7rHlkpmxVqqsmaGlKwxTSkbqUuJNUXeWAsNL65w0ENe2dbinZ58LjrvwyPaFz79WlwnjLPuTamdMWF6in2T_N3zif-58MememdiSOEu_-zzpSt57Er8pasYPLZpWicT3Rpj0U15G6L7rrMLw5lOu5ZwRRhllAtOCCUNcCZVA0CJYrVQEoSQkgJhXAkJnBNOQCguayUFr4EAVUBZTeiMeQMMJCdiBrI42Y8uYjofWtIIQeBoLpYRdUb7TFLG2JxXfMLDh8nZVgM0zGpRakugZMjrUlMkJbVCi7WwoDkUp2fd8vK0Ay7am_rym7_5PH6ku3TxcHJ7rw5LBW5zztTV10gmeb_b-P2XC79ZLaj9AQ&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:12:57.107658" elapsed="7.932701"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:13:05.041180" elapsed="0.212399"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:12:51.976493" elapsed="13.277420"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:13:10.256403" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:13:05.255853" elapsed="5.000871"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:13:10.258759" elapsed="0.319942"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:13:10.257421" elapsed="0.321562"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:13:10.580589" elapsed="0.047753"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:13:10.630079" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:13:10.629653" elapsed="0.202076"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:13:10.628886" elapsed="0.203217"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:13:10.579434" elapsed="0.252924"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:13:10.833871" elapsed="0.055541"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:13:10.891437" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:13:10.890985" elapsed="0.186968"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:13:10.889991" elapsed="0.188361"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:13:10.832989" elapsed="0.245558"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:13:05.254922" elapsed="5.823800"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:13:11.081027" elapsed="0.310826"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:13:11.080357" elapsed="0.312062"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:14:12.030203" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:14:12.030636" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:13:11.393076" elapsed="60.640615">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:14:12.034267" elapsed="0.000110"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:14:12.034719" elapsed="0.000076"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:13:11.079532" elapsed="60.955652">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:14:12.035814" elapsed="0.000104"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:14:12.037200" elapsed="0.000145"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:12:51.966926" elapsed="80.071009">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<test id="s1-s1-t8" name="Check AWS SiteB Live playback in Chrome" line="134">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:14:12.044148" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signke...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:14:12.042946" elapsed="0.001326"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:14:12.044873" elapsed="0.001758"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:14:12.047959" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signke...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:14:12.047350" elapsed="0.001022"/>
+</kw>
+<arg>amp_url=${prodAWSB_amp}</arg>
+<arg>kssurl=${prodAWSB_kssurl}</arg>
+<arg>mediauid=NBATVI</arg>
+<arg>Applicationtoken=1024</arg>
+<arg>playback_mode=LIVE</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:14:12.040966" elapsed="0.007810"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:14:12.051407" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:14:14.029835" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:14:15.689844" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:14:17.216256" level="INFO">Driver [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2025-11-18T11:14:17.217140" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x000002596A502030&gt;</msg>
+<msg time="2025-11-18T11:14:17.217412" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x000002596A502030&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:14:12.050681" elapsed="5.166811"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:14:17.218616" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signkey&amp;media-uid=NBATVI&amp;playback-mode=LIVE&amp;app-token=1024&amp;owner-uid=azuki&amp;sts-token=AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX_cD7rHlkpmxVqqsmaGlKwxTSkbqUuJNUXeWAsNL65w0ENe2dbinZ58LjrvwyPaFz79WlwnjLPuTamdMWF6in2T_N3zif-58MememdiSOEu_-zzpSt57Er8pasYPLZpWicT3Rpj0U15G6L7rrMLw5lOu5ZwRRhllAtOCCUNcCZVA0CJYrVQEoSQkgJhXAkJnBNOQCguayUFr4EAVUBZTeiMeQMMJCdiBrI42Y8uYjofWtIIQeBoLpYRdUb7TFLG2JxXfMLDh8nZVgM0zGpRakugZMjrUlMkJbVCi7WwoDkUp2fd8vK0Ay7am_rym7_5PH6ku3TxcHJ7rw5LBW5zztTV10gmeb_b-P2XC79ZLaj9AQ&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:14:17.217955" elapsed="8.122138"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:14:25.340864" elapsed="0.241210"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:14:12.049778" elapsed="13.532567"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:14:30.584690" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:14:25.583700" elapsed="5.001415"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:14:30.587122" elapsed="0.318375"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:14:30.585833" elapsed="0.320073"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:14:30.907148" elapsed="0.048962"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:14:30.958736" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:14:30.958092" elapsed="0.133025"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:14:30.956835" elapsed="0.134527"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:14:30.906335" elapsed="0.185398"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:14:31.092854" elapsed="0.029641"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:14:31.123969" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:14:31.123606" elapsed="0.102607"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:14:31.122921" elapsed="0.103533"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:14:31.092123" elapsed="0.134498"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:14:25.583022" elapsed="5.643749"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:14:31.229116" elapsed="0.299901"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:14:31.228399" elapsed="0.300836"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:15:32.054329" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:15:32.054702" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:14:31.529538" elapsed="60.530180">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:15:32.060480" elapsed="0.000144"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:15:32.061106" elapsed="0.000133"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:14:31.227491" elapsed="60.834184">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:15:32.062588" elapsed="0.000098"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:15:32.063646" elapsed="0.000155"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:14:12.039543" elapsed="80.025238">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<test id="s1-s1-t9" name="Check AWS SiteB VOD playback in Chrome" line="151">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:15:32.072579" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signke...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:15:32.071585" elapsed="0.001135"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:15:32.073259" elapsed="0.001304"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:15:32.075925" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signke...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:15:32.075239" elapsed="0.000857"/>
+</kw>
+<arg>amp_url=${prodAWSB_amp}</arg>
+<arg>kssurl=${prodAWSB_kssurl}</arg>
+<arg>mediauid=NBA_RADS2003251900076081_Jitp_Reach_HD</arg>
+<arg>Applicationtoken=</arg>
+<arg>playback_mode=VOD</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:15:32.069690" elapsed="0.006745"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:15:32.079162" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:15:34.081128" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:15:35.710312" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:15:37.156762" level="INFO">Driver [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2025-11-18T11:15:37.158305" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x000002596A503020&gt;</msg>
+<msg time="2025-11-18T11:15:37.158785" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x000002596A503020&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:15:32.078411" elapsed="5.080521"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:15:37.160925" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-b.proda.nb.tv3cloud.com&amp;kss-url=https://ottapp-appgw-client-b.proda.nb.tv3cloud.com/S1/kss/signkey&amp;media-uid=NBA_RADS2003251900076081_Jitp_Reach_HD&amp;playback-mode=VOD&amp;app-token=&amp;owner-uid=azuki&amp;sts-token=AuthToken1lVDLbtswEPwa6yZBXD5EHnQQ3LRxizRI80DaG01ubMaUKJBUYvfrKydNAxRtkQLEcjA7MwtMN1mHg8F2m_OYFrRbwPv5RfQHN2xGHfOhGmOwuhrWusoP1Pgw2cqEflYVq5QmjL95U07_sBy1r1KzxV6nat_7FPRYhbiZ2cc0D6hrPn9Pw1kcssuHGRqvXX_cD7rHlkpmxVqqsmaGlKwxTSkbqUuJNUXeWAsNL65w0ENe2dbinZ58LjrvwyPaFz79WlwnjLPuTamdMWF6in2T_N3zif-58MememdiSOEu_-zzpSt57Er8pasYPLZpWicT3Rpj0U15G6L7rrMLw5lOu5ZwRRhllAtOCCUNcCZVA0CJYrVQEoSQkgJhXAkJnBNOQCguayUFr4EAVUBZTeiMeQMMJCdiBrI42Y8uYjofWtIIQeBoLpYRdUb7TFLG2JxXfMLDh8nZVgM0zGpRakugZMjrUlMkJbVCi7WwoDkUp2fd8vK0Ay7am_rym7_5PH6ku3TxcHJ7rw5LBW5zztTV10gmeb_b-P2XC79ZLaj9AQ&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:15:37.159746" elapsed="7.739676"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:15:44.899980" elapsed="0.072944"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:15:32.077326" elapsed="12.895963"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:15:49.975543" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:15:44.974790" elapsed="5.001077"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:15:49.977628" elapsed="0.313196"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:15:49.976360" elapsed="0.314827"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:15:50.292910" elapsed="0.044062"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:15:50.338760" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:15:50.338323" elapsed="0.166725"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:15:50.337443" elapsed="0.168119"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:15:50.291752" elapsed="0.214246"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:15:50.508338" elapsed="0.041904"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:15:50.552046" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:15:50.551596" elapsed="0.140163"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:15:50.550742" elapsed="0.141263"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:15:50.506945" elapsed="0.185216"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:15:44.974212" elapsed="5.718096"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:15:50.694685" elapsed="0.309346"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:15:50.694052" elapsed="0.310301"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:16:51.473754" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:16:51.474240" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:15:51.004750" elapsed="60.473286">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:16:51.478535" elapsed="0.000100"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:16:51.479014" elapsed="0.000089"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:15:50.693120" elapsed="60.786281">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:16:51.480051" elapsed="0.000098"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:16:51.480836" elapsed="0.000129"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:15:32.067542" elapsed="79.414295">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<status status="FAIL" start="2025-11-18T11:05:45.434956" elapsed="666.049803"/>
+</suite>
+<status status="FAIL" start="2025-11-18T11:05:45.320036" elapsed="666.167486"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="8" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="NBA ProdA" id="s1" pass="1" fail="8" skip="0">NBA ProdA</stat>
+<stat name="DailyBVT" id="s1-s1" pass="1" fail="8" skip="0">NBA ProdA.DailyBVT</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

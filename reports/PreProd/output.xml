@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-18T11:30:52.742730" rpa="false" schemaversion="5">
+<suite id="s1" name="PreProd" source="C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\testcases\PreProd">
+<suite id="s1-s1" name="DailyBVT" source="C:\Users\Jnanesha.Reddy\Downloads\automation scripts\DTC-BVT-AUT\RobotAutomation\testcases\PreProd\DailyBVT.robot">
+<test id="s1-s1-t1" name="Generate tokens" line="15">
+<kw name="JWTTokenByTestSSO" owner="pprodTokenGenerationAPI">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-18T11:30:53.648434" level="INFO">Creating Session using : alias=alias, url=https://tv3testsso-a.pprod.mr.tv3cloud.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias</arg>
+<arg>${pprod_testsso}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-18T11:30:53.648223" elapsed="0.000427"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-18T11:30:53.649143" level="INFO">${headers} = {'content-type': 'application/x-www-form-urlencoded'}</msg>
+<var>${headers}</var>
+<arg>content-type=application/x-www-form-urlencoded</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-11-18T11:30:53.648837" elapsed="0.000365"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-18T11:30:53.649724" level="INFO">${testsso_payload} = {'client_id': '0123456789100307', 'client_secret': 'ROPCsecret', 'username': 'bhargav@tv3test.com', 'password': 'Bhargav@123', 'grant_type': 'password', 'scope': 'tv3testsso.read'}</msg>
+<var>${testsso_payload}</var>
+<arg>client_id=0123456789100307</arg>
+<arg>client_secret=ROPCsecret</arg>
+<arg>username=${pprod_UN}</arg>
+<arg>password=${pprod_PW}</arg>
+<arg>grant_type=password</arg>
+<arg>scope=tv3testsso.read</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-11-18T11:30:53.649408" elapsed="0.000352"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-11-18T11:30:55.703301" level="INFO">POST Request : url=https://tv3testsso-a.pprod.mr.tv3cloud.com/connect/token 
+ path_url=/connect/token 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/x-www-form-urlencoded', 'Content-Length': '147'} 
+ body=client_id=0123456789100307&amp;client_secret=ROPCsecret&amp;username=bhargav%40tv3test.com&amp;password=Bhargav%40123&amp;grant_type=password&amp;scope=tv3testsso.read 
+ </msg>
+<msg time="2025-11-18T11:30:55.703590" level="INFO">POST Response : url=https://tv3testsso-a.pprod.mr.tv3cloud.com/connect/token 
+ status=200, reason=OK 
+ headers={'Server': 'nginx', 'Date': 'Tue, 18 Nov 2025 06:00:55 GMT', 'Content-Type': 'application/json; charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cache-Control': 'no-store, no-cache, max-age=0', 'Pragma': 'no-cache', 'Strict-Transport-Security': 'max-age=2592000', 'Content-Encoding': 'gzip'} 
+ body={"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjczRUVCRTVENjEzMkY1OTNDQjM5RDBCMEQ3NUFBQTlENEJFOEY0QjhSUzI1NiIsInR5cCI6IkpXVCIsIng1dCI6ImMtNi1YV0V5OVpQTE9kQ3cxMXFxblV2bzlMZyJ9.eyJuYmYiOjE3NjM0NDU2NTUsImV4cCI6MTc2MzQ0OTI1NSwiaXNzIjoiaHR0cHM6Ly90djN0ZXN0c3NvLWEucHByb2QubXIudHYzY2xvdWQuY29tLyIsImF1ZCI6InR2M3Rlc3Rzc28iLCJjbGllbnRfaWQiOiIwMTIzNDU2Nzg5MTAwMzA3Iiwic3ViIjoiNjZiNzRiMjEzNjNmZTQyYzQ0NjA0MDZkIiwiYXV0aF90aW1lIjoxNzYzNDQ1NjU1LCJpZHAiOiJsb2NhbCIsInV1aWQiOiJiaGFyZ2F2QHR2M3Rlc3QuY29tIiwibWFpbElkIjoiYmhhcmdhdkB0djN0ZXN0LmNvbSIsImh0dHA6Ly9tZWRpYWtpbmQuY29tL21mL3RpZCI6ImRlZmF1bHQiLCJqdGkiOiJGQTYzN0E0M0VBMThFM0MwNTQwOEI3Qjk4REYwNDE4QSIsImlhdCI6MTc2MzQ0NTY1NSwic2NvcGUiOlsidHYzdGVzdHNzby5yZWFkIl0sImFtciI6WyJwd2QiXX0.C1ElYvgJfB-bLT7-UksFy9r0POAE8TZkSHea5lqOP6-MjTSq_a5kUUuzLsoiRgS-IQfsEhEnGsLcMvap7npj-MZ6rT5S3a9I5doqRtkBchEthvANFKrRbqVT4-se3HOkcO1DicxhePFOSVDhQfDaCR7LIQ4IMJqhYK3iBt3JKdxV0BhomdF7qwRTMqIylcee_AGT72ZVB2d7HN65B71rQ8lO2jdFcy-TmEgJS2gURUczIdpA7-WDpYau2IoQHw9HwSHzhVZMaz7vqY-8h1u4iDZCEYRFhCZc7GKpZJh3sqLdklND1-Y1lPUPDcUnH9kcwF3fgDbR0hDMB9PxD6eyr_ZFIlAbqIqZjjEn7AVK-TfctXAqzPGnL-ZPN4iTAuBZZdp9fEWmBRZvIhzjm8GVnerDBN2yOMCMZclsZx07njCjDMhi0MoqlXoevJAyaNLIgA2N42n7sTrBKQedNhMdAQVryrFlrKb7wsam03qySVCSwJ3ezRDxk08WOuG4vSRgb0rI729jRGV2prl1NoysDcF1s1bH_TMVDsxBygmXw97BI2jm0-kq7uV5ehA-u8Pm3FaDUeCWFb0EwGz87s7mo2QxRQFnjrA5KOYg5k77hqzh6UiQ-XQJMPo4d_TUVeyl3HaqVff7d1STq-2jdFM38kxbaNZIYfBtwH77ilHHY_I","expires_in":3600,"token_type":"Bearer","scope":"tv3testsso.read"} 
+ </msg>
+<msg time="2025-11-18T11:30:55.703917" level="INFO">C:\Users\Jnanesha.Reddy\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'tv3testsso-a.pprod.mr.tv3cloud.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-18T11:30:55.704885" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias</arg>
+<arg>/connect/token</arg>
+<arg>headers=${headers}</arg>
+<arg>data=${testsso_payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-11-18T11:30:53.649923" elapsed="2.055101"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:30:55.705555" elapsed="0.003007"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:30:55.708927" elapsed="0.003468"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-11-18T11:30:55.714991" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>${code}</arg>
+<arg>${response.status_code}</arg>
+<arg>msg=${msg}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-11-18T11:30:55.712781" elapsed="0.002345"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-11-18T11:30:55.717541" level="INFO">${jwt_token} = eyJhbGciOiJSUzI1NiIsImtpZCI6IjczRUVCRTVENjEzMkY1OTNDQjM5RDBCMEQ3NUFBQTlENEJFOEY0QjhSUzI1NiIsInR5cCI6IkpXVCIsIng1dCI6ImMtNi1YV0V5OVpQTE9kQ3cxMXFxblV2bzlMZyJ9.eyJuYmYiOjE3NjM0NDU2NTUsImV4cCI6MTc2MzQ0OTI...</msg>
+<var>${jwt_token}</var>
+<arg>${response.json()}</arg>
+<arg>access_token</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-11-18T11:30:55.715407" elapsed="0.002195"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${jwt_token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:30:55.717842" elapsed="0.000830"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:30:55.719328" level="INFO">${jwt_token} = eyJhbGciOiJSUzI1NiIsImtpZCI6IjczRUVCRTVENjEzMkY1OTNDQjM5RDBCMEQ3NUFBQTlENEJFOEY0QjhSUzI1NiIsInR5cCI6IkpXVCIsIng1dCI6ImMtNi1YV0V5OVpQTE9kQ3cxMXFxblV2bzlMZyJ9.eyJuYmYiOjE3NjM0NDU2NTUsImV4cCI6MTc2MzQ0OTI...</msg>
+<arg>${jwt_token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:30:55.718931" elapsed="0.000481"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:30:53.646733" elapsed="2.072811"/>
+</kw>
+<kw name="ClientTokenByJWTSignin" owner="pprodTokenGenerationAPI">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-18T11:30:55.721020" level="INFO">Creating Session using : alias=alias, url=https://appgw-client-a.pprod.mr.tv3cloud.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias</arg>
+<arg>${pprod_jwtsignin}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-18T11:30:55.720793" elapsed="0.000485"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-18T11:30:55.721689" level="INFO">${headers} = {'content-type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-11-18T11:30:55.721461" elapsed="0.000268"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:30:55.722154" level="INFO">${jwtsignin_payload} = {"Jwt":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjczRUVCRTVENjEzMkY1OTNDQjM5RDBCMEQ3NUFBQTlENEJFOEY0QjhSUzI1NiIsInR5cCI6IkpXVCIsIng1dCI6ImMtNi1YV0V5OVpQTE9kQ3cxMXFxblV2bzlMZyJ9.eyJuYmYiOjE3NjM0NDU2NTUsImV4cCI6MTc...</msg>
+<var>${jwtsignin_payload}</var>
+<arg>{"Jwt":"${jwt_token}","DeviceType":"${DeviceType}","DeviceId":"${DeviceId}","TenantId":"default"}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-18T11:30:55.721887" elapsed="0.000307"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-11-18T11:30:56.876066" level="INFO">POST Request : url=https://appgw-client-a.pprod.mr.tv3cloud.com/S1/sts/v1/oauth/jwtsignin 
+ path_url=/S1/sts/v1/oauth/jwtsignin 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '1484'} 
+ body={"Jwt":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjczRUVCRTVENjEzMkY1OTNDQjM5RDBCMEQ3NUFBQTlENEJFOEY0QjhSUzI1NiIsInR5cCI6IkpXVCIsIng1dCI6ImMtNi1YV0V5OVpQTE9kQ3cxMXFxblV2bzlMZyJ9.eyJuYmYiOjE3NjM0NDU2NTUsImV4cCI6MTc2MzQ0OTI1NSwiaXNzIjoiaHR0cHM6Ly90djN0ZXN0c3NvLWEucHByb2QubXIudHYzY2xvdWQuY29tLyIsImF1ZCI6InR2M3Rlc3Rzc28iLCJjbGllbnRfaWQiOiIwMTIzNDU2Nzg5MTAwMzA3Iiwic3ViIjoiNjZiNzRiMjEzNjNmZTQyYzQ0NjA0MDZkIiwiYXV0aF90aW1lIjoxNzYzNDQ1NjU1LCJpZHAiOiJsb2NhbCIsInV1aWQiOiJiaGFyZ2F2QHR2M3Rlc3QuY29tIiwibWFpbElkIjoiYmhhcmdhdkB0djN0ZXN0LmNvbSIsImh0dHA6Ly9tZWRpYWtpbmQuY29tL21mL3RpZCI6ImRlZmF1bHQiLCJqdGkiOiJGQTYzN0E0M0VBMThFM0MwNTQwOEI3Qjk4REYwNDE4QSIsImlhdCI6MTc2MzQ0NTY1NSwic2NvcGUiOlsidHYzdGVzdHNzby5yZWFkIl0sImFtciI6WyJwd2QiXX0.C1ElYvgJfB-bLT7-UksFy9r0POAE8TZkSHea5lqOP6-MjTSq_a5kUUuzLsoiRgS-IQfsEhEnGsLcMvap7npj-MZ6rT5S3a9I5doqRtkBchEthvANFKrRbqVT4-se3HOkcO1DicxhePFOSVDhQfDaCR7LIQ4IMJqhYK3iBt3JKdxV0BhomdF7qwRTMqIylcee_AGT72ZVB2d7HN65B71rQ8lO2jdFcy-TmEgJS2gURUczIdpA7-WDpYau2IoQHw9HwSHzhVZMaz7vqY-8h1u4iDZCEYRFhCZc7GKpZJh3sqLdklND1-Y1lPUPDcUnH9kcwF3fgDbR0hDMB9PxD6eyr_ZFIlAbqIqZjjEn7AVK-TfctXAqzPGnL-ZPN4iTAuBZZdp9fEWmBRZvIhzjm8GVnerDBN2yOMCMZclsZx07njCjDMhi0MoqlXoevJAyaNLIgA2N42n7sTrBKQedNhMdAQVryrFlrKb7wsam03qySVCSwJ3ezRDxk08WOuG4vSRgb0rI729jRGV2prl1NoysDcF1s1bH_TMVDsxBygmXw97BI2jm0-kq7uV5ehA-u8Pm3FaDUeCWFb0EwGz87s7mo2QxRQFnjrA5KOYg5k77hqzh6UiQ-XQJMPo4d_TUVeyl3HaqVff7d1STq-2jdFM38kxbaNZIYfBtwH77ilHHY_I","DeviceType":"WebChrome","DeviceId":"c-e3b49dc1-3044f6e0-39154476e1","TenantId":"default"} 
+ </msg>
+<msg time="2025-11-18T11:30:56.876192" level="INFO">POST Response : url=https://appgw-client-a.pprod.mr.tv3cloud.com/S1/sts/v1/oauth/jwtsignin 
+ status=403, reason=Forbidden 
+ headers={'Date': 'Tue, 18 Nov 2025 06:00:56 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'cache-control': 'no-store, no-cache, max-age=0', 'expires': 'Mon, 17 Nov 2025 06:00:56 GMT', 'x-icid': '1817aace62d842e4a1da537fb0731127', 'x-envoy-upstream-service-time': '220', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'X-Frame-Options': 'SAMEORIGIN'} 
+ body=Response status code does not indicate success: 503 (Service Unavailable). 
+ </msg>
+<msg time="2025-11-18T11:30:56.876332" level="INFO">C:\Users\Jnanesha.Reddy\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'appgw-client-a.pprod.mr.tv3cloud.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-18T11:30:56.876782" level="FAIL">HTTPError: 403 Client Error: Forbidden for url: https://appgw-client-a.pprod.mr.tv3cloud.com/S1/sts/v1/oauth/jwtsignin</msg>
+<var>${response}</var>
+<arg>alias</arg>
+<arg>/S1/sts/v1/oauth/jwtsignin</arg>
+<arg>headers=${headers}</arg>
+<arg>data=${jwtsignin_payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-11-18T11:30:55.722352" elapsed="1.242590">HTTPError: 403 Client Error: Forbidden for url: https://appgw-client-a.pprod.mr.tv3cloud.com/S1/sts/v1/oauth/jwtsignin</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.965277" elapsed="0.000046"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.965746" elapsed="0.000041"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${code}</arg>
+<arg>${response.status_code}</arg>
+<arg>msg=${msg}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.965988" elapsed="0.000034"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<var>${json_object}</var>
+<arg>${response.content}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.966184" elapsed="0.000053"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<var>${Acess_Token}</var>
+<arg>${json_object}</arg>
+<arg>$.AccessToken</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.966411" elapsed="0.000032"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${access_token}</var>
+<arg>${Acess_Token}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.966582" elapsed="0.000030"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<var>${client_token}</var>
+<arg>OAUTH2 access_token="${access_token}"</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.966741" elapsed="0.000029"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${client_token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.966886" elapsed="0.000026"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${access_token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.967028" elapsed="0.000025"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${client_token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-11-18T11:30:56.967159" elapsed="0.000025"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:30:55.720203" elapsed="1.247132">HTTPError: 403 Client Error: Forbidden for url: https://appgw-client-a.pprod.mr.tv3cloud.com/S1/sts/v1/oauth/jwtsignin</status>
+</kw>
+<status status="FAIL" start="2025-11-18T11:30:53.645874" elapsed="3.321904">HTTPError: 403 Client Error: Forbidden for url: https://appgw-client-a.pprod.mr.tv3cloud.com/S1/sts/v1/oauth/jwtsignin</status>
+</test>
+<test id="s1-s1-t2" name="Check Live playback in Chrome" line="19">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:30:56.970511" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.pprod.mr.tv3cloud.com&amp;kss-url=&amp;media-uid=Live07&amp;playback-mode=LIVE&amp;app-token=69712&amp;owner-uid=az...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:30:56.970083" elapsed="0.000503"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:30:56.970857" elapsed="0.000629"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:30:56.972103" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.pprod.mr.tv3cloud.com&amp;kss-url=&amp;media-uid=Live07&amp;playback-mode=LIVE&amp;app-token=69712&amp;owner-uid=az...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:30:56.971821" elapsed="0.000361"/>
+</kw>
+<arg>amp_url=${pprod_amp}</arg>
+<arg>kssurl=</arg>
+<arg>mediauid=Live07</arg>
+<arg>Applicationtoken=69712</arg>
+<arg>playback_mode=LIVE</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:30:56.969496" elapsed="0.002782"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:30:56.974145" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:30:58.471202" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:30:59.576091" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:31:00.539711" level="INFO">Driver [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2025-11-18T11:31:00.540283" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x0000020E0DEC6F90&gt;</msg>
+<msg time="2025-11-18T11:31:00.540459" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x0000020E0DEC6F90&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:30:56.973817" elapsed="3.566687"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:31:00.541224" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.pprod.mr.tv3cloud.com&amp;kss-url=&amp;media-uid=Live07&amp;playback-mode=LIVE&amp;app-token=69712&amp;owner-uid=azuki&amp;sts-token=&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:31:00.540786" elapsed="6.481387"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:31:07.022714" elapsed="0.081248"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:30:56.972689" elapsed="10.131561"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:31:12.107408" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:31:07.106190" elapsed="5.001385"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:31:12.108212" elapsed="0.288092"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:31:12.107822" elapsed="0.289044"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:31:12.399044" elapsed="0.069169"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:31:12.469049" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:31:12.468835" elapsed="0.083922"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:31:12.468458" elapsed="0.084428"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:31:12.397721" elapsed="0.155248"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:31:12.553538" elapsed="0.020342"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:31:12.575265" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:31:12.574908" elapsed="0.076499"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:31:12.574257" elapsed="0.077298"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:31:12.553174" elapsed="0.098471"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:31:07.105156" elapsed="5.546570"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:31:12.653090" elapsed="0.290130"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:31:12.652708" elapsed="0.290760"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:32:13.190818" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:32:13.191156" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:31:12.943739" elapsed="60.251692">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:32:13.195693" elapsed="0.000047"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:32:13.195891" elapsed="0.000036"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:31:12.652215" elapsed="60.543851">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:32:13.196451" elapsed="0.000071"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:32:13.196909" elapsed="0.000050"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:30:56.968745" elapsed="76.228571">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<test id="s1-s1-t3" name="Check VOD playback in Chrome" line="36">
+<kw name="configure wmc refApp for playback" owner="ConfigureWMCRefAppUI">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-11-18T11:32:13.200512" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.pprod.mr.tv3cloud.com&amp;kss-url=&amp;media-uid=Frozen_8aud_8sub_15mins_Jitp_Reach_HD&amp;playback-mode=VO...</msg>
+<var>${wmc_link}</var>
+<arg>${wmc_baseurl}/#server-request-url=${amp_url}&amp;kss-url=${kssurl}&amp;media-uid=${mediauid}&amp;playback-mode=${playback_mode}&amp;app-token=${Applicationtoken}&amp;owner-uid=azuki&amp;sts-token=${Auth_token}&amp;low-latency=${lowlatency}&amp;target-latency=${targetLatency}&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-11-18T11:32:13.200043" elapsed="0.000514"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${wmc_link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-18T11:32:13.200789" elapsed="0.000457"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-18T11:32:13.201735" level="INFO">${wmc_link} = https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.pprod.mr.tv3cloud.com&amp;kss-url=&amp;media-uid=Frozen_8aud_8sub_15mins_Jitp_Reach_HD&amp;playback-mode=VO...</msg>
+<arg>${wmc_link}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-18T11:32:13.201479" elapsed="0.000321"/>
+</kw>
+<arg>amp_url=${pprod_amp}</arg>
+<arg>kssurl=</arg>
+<arg>mediauid=Frozen_8aud_8sub_15mins_Jitp_Reach_HD</arg>
+<arg>Applicationtoken=</arg>
+<arg>playback_mode=VOD</arg>
+<arg>Auth_token=${access_token}</arg>
+<arg>lowlatency=true</arg>
+<arg>targetLatency=5</arg>
+<status status="PASS" start="2025-11-18T11:32:13.199405" elapsed="0.002489"/>
+</kw>
+<kw name="Launch refApp" owner="ConfigureWMCRefAppUI">
+<kw name="Get Driver Path With Browser" owner="DriverPath">
+<msg time="2025-11-18T11:32:13.202995" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-11-18T11:32:14.956112" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:32:16.118316" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-11-18T11:32:17.244100" level="INFO">Driver [C:\Users\Jnanesha.Reddy\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache</msg>
+<msg time="2025-11-18T11:32:17.246024" level="INFO">&lt;selenium.webdriver.edge.service.Service object at 0x0000020E0EA6F110&gt;</msg>
+<msg time="2025-11-18T11:32:17.246593" level="INFO">${driver_path} = &lt;selenium.webdriver.edge.service.Service object at 0x0000020E0EA6F110&gt;</msg>
+<var>${driver_path}</var>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-11-18T11:32:13.202733" elapsed="4.044041"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:32:17.249339" level="INFO">Opening browser 'Chrome' to base url 'https://mkplayer:M3d!@2026@wmc.mr.tv3cloud.com/nba/RefApp/#server-request-url=https://ottapp-appgw-amp-a.pprod.mr.tv3cloud.com&amp;kss-url=&amp;media-uid=Frozen_8aud_8sub_15mins_Jitp_Reach_HD&amp;playback-mode=VOD&amp;app-token=&amp;owner-uid=azuki&amp;sts-token=&amp;low-latency=true&amp;target-latency=5&amp;location-detail=eyJQb3N0YWxDb2RlIjoiNTYyMTI1IiwiQ291bnRyeUNvZGUiOiJJTiJ9'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>service=${driver_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-18T11:32:17.247809" elapsed="7.647588"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-18T11:32:24.895808" elapsed="0.052312"/>
+</kw>
+<arg>url=${wmc_link}</arg>
+<arg>browser=Chrome</arg>
+<status status="PASS" start="2025-11-18T11:32:13.202319" elapsed="11.746022"/>
+</kw>
+<kw name="Start the playback" owner="KeywordsUI">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-18T11:32:29.950221" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-18T11:32:24.949597" elapsed="5.000786"/>
+</kw>
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:32:29.951437" elapsed="0.291971"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:32:29.950863" elapsed="0.292664"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:32:30.244047" elapsed="0.021663"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:32:30.266492" level="INFO">Clicking element '//button[@id='stop-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:32:30.266299" elapsed="0.069277"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:32:30.265947" elapsed="0.069760"/>
+</kw>
+<arg>//button[@id='stop-btn']</arg>
+<status status="PASS" start="2025-11-18T11:32:30.243720" elapsed="0.092091"/>
+</kw>
+<kw name="UI Element Click" owner="KeywordsUI">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selector}</arg>
+<arg>timeout=${variable_timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-18T11:32:30.336440" elapsed="0.020124"/>
+</kw>
+<kw name="Click" owner="KeywordsUI">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:32:30.357332" level="INFO">Clicking element '//button[@id='play-pause-btn']'.</msg>
+<arg>${item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-18T11:32:30.357146" elapsed="0.067750"/>
+</kw>
+<arg>${selector}</arg>
+<status status="PASS" start="2025-11-18T11:32:30.356799" elapsed="0.068220"/>
+</kw>
+<arg>//button[@id='play-pause-btn']</arg>
+<status status="PASS" start="2025-11-18T11:32:30.336011" elapsed="0.089084"/>
+</kw>
+<status status="PASS" start="2025-11-18T11:32:24.949001" elapsed="5.476162"/>
+</kw>
+<kw name="Check player state" owner="KeywordsUI">
+<kw name="Scroll To" owner="KeywordsUI">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-18T11:32:30.426236" elapsed="0.276184"/>
+</kw>
+<arg>//code[@id='player-state']</arg>
+<status status="PASS" start="2025-11-18T11:32:30.425964" elapsed="0.276609"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-18T11:33:31.123850" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-18T11:33:31.124088" level="FAIL">Element '//code[text()='Playing']' not visible after 1 minute.</msg>
+<arg>//code[text()='${state}']</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-18T11:32:30.703015" elapsed="60.422542">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-18T11:33:31.125826" elapsed="0.000039"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Video ${state}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-18T11:33:31.125982" elapsed="0.000028"/>
+</kw>
+<arg>state=Playing</arg>
+<arg>timeout=1m</arg>
+<status status="FAIL" start="2025-11-18T11:32:30.425584" elapsed="60.700534">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-18T11:33:31.126436" elapsed="0.000036"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-11-18T11:33:31.126727" elapsed="0.000033"/>
+</kw>
+<status status="FAIL" start="2025-11-18T11:32:13.198487" elapsed="77.928558">Element '//code[text()='Playing']' not visible after 1 minute.</status>
+</test>
+<status status="FAIL" start="2025-11-18T11:30:52.801730" elapsed="158.326541"/>
+</suite>
+<status status="FAIL" start="2025-11-18T11:30:52.745095" elapsed="158.384634"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="PreProd" id="s1" pass="0" fail="3" skip="0">PreProd</stat>
+<stat name="DailyBVT" id="s1-s1" pass="0" fail="3" skip="0">PreProd.DailyBVT</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
